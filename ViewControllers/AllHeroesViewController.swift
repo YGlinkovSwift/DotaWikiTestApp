@@ -122,7 +122,7 @@ class AllHeroesViewController: UIViewController, NSFetchedResultsControllerDeleg
             switch result {
             case .success(let dotaHeroes):
                 self.heroes = dotaHeroes
-                self.strangeHeroesViewController.heroes = self.heroes 
+                self.strangeHeroesViewController.heroes = dotaHeroes.filter { $0.heroMainAttribute == "str" }
             case .failure(let error):
                 print(error)
             }
