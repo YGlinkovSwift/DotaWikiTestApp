@@ -3,10 +3,8 @@ import CoreData
 
 class AllHeroesViewController: UIViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        print("x")
     }
     
-    // 123
     
 
     let networkingManager = NetworkingManager()
