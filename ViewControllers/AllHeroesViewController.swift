@@ -6,6 +6,8 @@ class AllHeroesViewController: UIViewController, NSFetchedResultsControllerDeleg
         print("x")
     }
     
+    // 123
+    
 
     let networkingManager = NetworkingManager()
     var dataProvider = DataProvider()
