@@ -1,19 +1,13 @@
 import UIKit
 
-
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController  {
     
     let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
     let strangeHeroesViewController = StrangeHeroesViewController()
     let agilityHeroesViewController = AgilityHeroesViewController()
     let intelligenceHeroesViewController = IntelligenceHeroesViewController()
-    let searchController = UISearchController()
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+    let searchBar = UISearchBar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarController()
@@ -21,36 +15,31 @@ class TabBarViewController: UITabBarController {
         setUpSearchBarLayout()
     }
     
-
+    // MARK: - Private methods
+    
+    private func setUpSearchBarLayout() {
+        navigationItem.titleView = searchBar
+        searchBar.searchBarStyle = .prominent
+        searchBar.isTranslucent = true
+        searchBar.tintColor = .yellow
+        searchBar.searchTextField.delegate = self
+        searchBar.searchTextField.textColor = .white
+        searchBar.placeholder = "Search all heroes by name..."
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+    }
+    
     private func configuteTabBar() {
         self.setViewControllers([allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController], animated: false)
         setUpTabBarController()
         self.tabBar.contentMode = .scaleAspectFit
-        self.tabBar.backgroundColor = .black
+        self.tabBar.isTranslucent = false
+        self.tabBar.alpha = 0.94
         self.tabBar.unselectedItemTintColor = .yellow
         self.tabBar.selectedImageTintColor = .lightGray
-        self.navigationItem.titleView = self.searchController.searchBar
         self.navigationItem.titleView?.isHidden = false
-
     }
-    private func setUpSearchBarLayout() {
-        
-
-        searchController.searchBar.placeholder = "Search all heroes by name..."
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.definesPresentationContext = true
-        searchController.searchBar.becomeFirstResponder()
-
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        navigationItem.hidesSearchBarWhenScrolling = true
-        searchController.searchBar.sizeToFit()
-        searchController.searchBar.isUserInteractionEnabled = true
-        searchController.searchBar.isTranslucent = true
-        searchController.searchBar.accessibilityTraits = UIAccessibilityTraits.searchField
-    }
-
+    
     private func setUpTabBarController() {
         allHeroesViewController.tabBarItem.badgeColor = .yellow
         [allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController].forEach {

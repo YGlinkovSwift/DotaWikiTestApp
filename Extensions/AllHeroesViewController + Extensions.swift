@@ -4,14 +4,12 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return heroes.count
-        //fetchedResultsController.sections?.first?.numberOfObjects ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? CustomCell
         else { return UICollectionViewCell() }
-        
         let sortedHeroesAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
         let cellModel = sortedHeroesAlphabetically[indexPath.row]
         cell.configure(with: cellModel)
@@ -55,26 +53,3 @@ extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension AllHeroesViewController: UISearchBarDelegate, UITextFieldDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else {
-            return
-        }
-        print(text)
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.isUserInteractionEnabled = true
-        self.searchBar.showsCancelButton = true
-        self.searchBar.searchTextField.isEnabled = true
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("started")
-    }
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        print("should begin")
-        return true
-    }
-    
-}

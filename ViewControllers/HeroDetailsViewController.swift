@@ -1,5 +1,5 @@
 import UIKit
-
+// add forEach
 class HeroDetailsViewController: UIViewController {
     
     var hero: [Hero]
@@ -22,8 +22,6 @@ class HeroDetailsViewController: UIViewController {
     let heroAttackTypeLabel = UILabel()
     let heroAttackRangeImageView = UIImageView()
     let heroAttackRangeLabel = UILabel()
-    let currentPatchLabel = UILabel()
-    let textField = UITextField()
 
     
     init(hero: [Hero]) {
@@ -55,38 +53,20 @@ class HeroDetailsViewController: UIViewController {
         setUpHeroAttackTypeLabelLayout()
         setUpHeroAttackRangeImageViewLayout()
         setUpHeroAttackRangeLabelLayout()
-        setUpCurrentPatchLabel()
-        setUpTextField()
         
     }
     
-    private func setUpTextField() {
-        view.addSubview(textField)
-        textField.backgroundColor = .blue
-        textField.textColor = .red
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.isUserInteractionEnabled = true
-        NSLayoutConstraint.activate([
-            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200),
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textField.widthAnchor.constraint(equalToConstant: 250),
-            textField.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-    
+    //MARK: Private methods
     
     private func setUpHeroPictureImageViewLayout() {
         view.addSubview(heroPictureImageView)
         heroPictureImageView.contentMode = .scaleAspectFit
         heroPictureImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         let baseLink = "https://api.opendota.com"
         let fullHeroPortraitImageLink = baseLink + hero[0].heroPortraitImageURL
         let fullHeroIconImageLink = baseLink + hero[0].heroIconImageURL
-        
         heroPictureImageView.loadImageFromUrl(urlString: fullHeroPortraitImageLink)
         heroIconImageView.loadImageFromUrl(urlString: fullHeroIconImageLink)
-        
         
         NSLayoutConstraint.activate([
             heroPictureImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 95),
@@ -347,17 +327,4 @@ class HeroDetailsViewController: UIViewController {
         ])
     }
     
-    private func setUpCurrentPatchLabel() {
-        view.addSubview(currentPatchLabel)
-        currentPatchLabel.translatesAutoresizingMaskIntoConstraints = false
-        currentPatchLabel.text = "7.31d"
-        currentPatchLabel.textColor = .red
-        currentPatchLabel.font = .systemFont(ofSize: 25)
-        NSLayoutConstraint.activate([
-            currentPatchLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            currentPatchLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            currentPatchLabel.widthAnchor.constraint(equalToConstant: 60),
-            currentPatchLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
-    }
 }

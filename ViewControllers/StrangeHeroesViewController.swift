@@ -4,13 +4,12 @@ class StrangeHeroesViewController: UIViewController {
 
     let strangeHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let networkingManager = NetworkingManager()
+    var dataProvider = DataProvider()
     
     var heroes: [Hero] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.strangeHeroesCollectionView.reloadData()
-                print("heroes count is - \(self.heroes.count)")
-
             }
         }
     }
@@ -20,6 +19,17 @@ class StrangeHeroesViewController: UIViewController {
         setUpCollectionViewLayout()
         configureCollectionView()
         print("there are \(heroes.count)")
+        
+        dataProvider.fetchHeroes { result in
+            switch result {
+            case .success(let heroes):
+                self.heroes = heroes.filter { $0.heroMainAttribute == "str" }
+            case .failure(let error):
+                print("error \(error)")
+            }
+        }
+        
+        
     }
     
     private func setUpCollectionViewLayout() {
@@ -63,11 +73,11 @@ extension StrangeHeroesViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-//        let sortedHeroAlphabetically = allHeroesViewController.heroes.sorted { $0.heroName < $1.heroName }
-//        let hero = sortedHeroAlphabetically[indexPath.row]
-//        let heroDetailsViewController = HeroDetailsViewController(hero: allHeroesViewController.heroes)
-//        heroDetailsViewController.hero = [hero].self
-//        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
+        let sortedHeroAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
+        let hero = sortedHeroAlphabetically[indexPath.row]
+        let heroDetailsViewController = HeroDetailsViewController(hero: heroes)
+        heroDetailsViewController.hero = [hero].self
+        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -95,6 +105,5 @@ extension StrangeHeroesViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
     
-
 }
 

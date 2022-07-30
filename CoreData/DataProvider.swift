@@ -9,15 +9,16 @@ class DataProvider {
     let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
     let repository: NetworkingManager = NetworkingManager()
 
-
-    func fetchHeroes(completion: @escaping (Error?) -> Void) {
+    //MARK: - Methods
+    
+    func fetchHeroes(completion: @escaping (Result<[Hero], Error>) -> Void) {
         repository.request(endpoint: HeroesAPI.heroes) { (result: Result<[Hero], NetworkingError>) in
             switch result {
             case .success(let dotaHeroes):
-                print(dotaHeroes)
+                completion(.success(dotaHeroes))
             case .failure(let error):
-                print(error)
-                
+                completion(.failure(error))
+
             }
             
         let taskContext = self.persistentContainer.newBackgroundContext()
@@ -26,8 +27,6 @@ class DataProvider {
         
             _ = self.syncHeroes(result: result, taskContext: taskContext)
         
-        completion(nil)
-            
         }
     }
     
@@ -43,10 +42,11 @@ class DataProvider {
                 } catch {
                     print("error")
                 }
-                taskContext.reset()
+                //taskContext.reset()
         
         successfull = true
     }
         return successfull
     }
+
 }

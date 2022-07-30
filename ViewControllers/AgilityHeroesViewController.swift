@@ -8,6 +8,7 @@ class AgilityHeroesViewController: UIViewController {
     let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
     let networkingManager = NetworkingManager()
+    let dataProvider = DataProvider()
     
     var heroes: [Hero] = [] {
         didSet {
@@ -22,8 +23,18 @@ class AgilityHeroesViewController: UIViewController {
         setUpCollectionViewLayout()
         configureCollectionView()
         
+        dataProvider.fetchHeroes { result in
+            switch result {
+            case .success(let heroes):
+                self.heroes = heroes.filter { $0.heroMainAttribute == "agi" }
+            case .failure(let error):
+                print("error \(error)")
+            }
+        }
+        
     }
     
+    //MARK: - Private methods
 
     private func setUpCollectionViewLayout() {
         view.addSubview(agilityHeroesCollectionView)
@@ -50,7 +61,7 @@ class AgilityHeroesViewController: UIViewController {
 extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allHeroesViewController.heroes.filter { $0.heroMainAttribute == "agi" }.count
+        heroes.count
         
     }
     
@@ -65,12 +76,12 @@ extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionV
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        let sortedHeroAlphabetically = allHeroesViewController.heroes.sorted { $0.heroName < $1.heroName }
-//        let hero = sortedHeroAlphabetically[indexPath.row]
-//        let heroDetailsViewController = HeroDetailsViewController(hero: allHeroesViewController.heroes)
-//        heroDetailsViewController.hero = [hero].self
-//        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let sortedHeroAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
+        let hero = sortedHeroAlphabetically[indexPath.row]
+        let heroDetailsViewController = HeroDetailsViewController(hero: heroes)
+        heroDetailsViewController.hero = [hero].self
+        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize

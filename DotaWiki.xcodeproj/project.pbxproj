@@ -118,11 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */,
-				C17B6498289318D500EBFFCC /* AllHeroesViewController.swift */,
 				C17B6493289318D500EBFFCC /* HeroDetailsViewController.swift */,
 				C17B6496289318D500EBFFCC /* IntelligenceHeroesViewController.swift */,
 				C17B6494289318D500EBFFCC /* StrangeHeroesViewController.swift */,
-				C17B6495289318D500EBFFCC /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -130,6 +128,8 @@
 		C1D577C428931375000FBDF0 = {
 			isa = PBXGroup;
 			children = (
+				C1F350E8289467FD00F440C1 /* RootViewController */,
+				C1F350E72894450B00F440C1 /* MainViewController */,
 				C17B649F289318D900EBFFCC /* ViewControllers */,
 				C17B6492289318B500EBFFCC /* Networking */,
 				C17B64852893186500EBFFCC /* Models */,
@@ -171,6 +171,22 @@
 				C1D577D928931375000FBDF0 /* DotaWiki.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C1F350E72894450B00F440C1 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C17B6498289318D500EBFFCC /* AllHeroesViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		C1F350E8289467FD00F440C1 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C17B6495289318D500EBFFCC /* TabBarViewController.swift */,
+			);
+			path = RootViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

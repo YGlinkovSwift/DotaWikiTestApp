@@ -10,3 +10,7 @@ extension TabBarViewController: UISearchResultsUpdating {
     }
 
 }
+
+extension TabBarViewController: UITextFieldDelegate, UISearchBarDelegate {
+    
+}

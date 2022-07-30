@@ -1,11 +1,9 @@
 import UIKit
-//
-class IntelligenceHeroesViewController: UIViewController {
-    
-    let textField = UITextField()
 
+class IntelligenceHeroesViewController: UIViewController {
     let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    let networkingManager = NetworkingManager()
+    let dataProvider = DataProvider()
+    
 
     var heroes: [Hero] = [] {
         didSet {
@@ -18,22 +16,19 @@ class IntelligenceHeroesViewController: UIViewController {
         view.backgroundColor = .red
         setUpCollectionViewLayout()
         configureCollectionView()
-        setUpTextField()
+        
+        dataProvider.fetchHeroes { result in
+            switch result {
+            case .success(let heroes):
+                self.heroes = heroes.filter { $0.heroMainAttribute == "int" }
+            case .failure(let error):
+                print("error \(error)")
+            }
+        }
     }
     
+    //MARK: - Private methods
     
-    private func setUpTextField() {
-        view.addSubview(textField)
-        textField.backgroundColor = .blue
-        textField.textColor = .green
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            textField.widthAnchor.constraint(equalToConstant: 200),
-            textField.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
 
     private func setUpCollectionViewLayout() {
         view.addSubview(intelligenceHeroesCollectionView)
@@ -60,8 +55,7 @@ class IntelligenceHeroesViewController: UIViewController {
 extension IntelligenceHeroesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sortedStrangeHeroes = heroes.filter { $0.heroMainAttribute == "int"}
-        return sortedStrangeHeroes.count
+        heroes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,11 +70,11 @@ extension IntelligenceHeroesViewController: UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-//        let sortedHeroAlphabetically = allHeroesViewController.heroes.sorted { $0.heroName < $1.heroName }
-//        let hero = sortedHeroAlphabetically[indexPath.row]
-//        let heroDetailsViewController = HeroDetailsViewController(hero: allHeroesViewController.heroes)
-//        heroDetailsViewController.hero = [hero].self
-//        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
+        let sortedHeroAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
+        let hero = sortedHeroAlphabetically[indexPath.row]
+        let heroDetailsViewController = HeroDetailsViewController(hero: heroes)
+        heroDetailsViewController.hero = [hero].self
+        self.navigationController?.pushViewController(heroDetailsViewController, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
