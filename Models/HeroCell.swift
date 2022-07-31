@@ -2,8 +2,12 @@ import UIKit
 
 final class CustomCell: UICollectionViewCell {
     
+    //MARK: - Private properties
+    
     private lazy var HeroNameTextLabel = UILabel()
     private let HeroPortraitImageView = UIImageView()
+    
+    //MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -15,6 +19,7 @@ final class CustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     
     private func setUpHeroPortraitImageViewLayout() {
         contentView.addSubview(HeroPortraitImageView)
@@ -61,7 +66,7 @@ final class CustomCell: UICollectionViewCell {
             HeroNameTextLabel.textColor = .green
         }
         if model.heroMainAttribute == "int" {
-            HeroNameTextLabel.textColor = .tintColor
+            HeroNameTextLabel.textColor = .cyan
         }
     
     }

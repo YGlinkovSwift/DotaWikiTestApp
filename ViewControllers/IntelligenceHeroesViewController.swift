@@ -1,6 +1,9 @@
 import UIKit
 
 final class IntelligenceHeroesViewController: UIViewController {
+    
+    //MARK: - Properties
+    
    private let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
    private let dataProvider = DataProvider()
    private let backgroundIntoCollectionViewImageView = UIImageView()
@@ -11,11 +14,13 @@ final class IntelligenceHeroesViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         view.backgroundColor = .red
         setUpCollectionViewLayout()
         configureCollectionView()
-        
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
@@ -46,6 +51,7 @@ final class IntelligenceHeroesViewController: UIViewController {
     }
 
     private func configureCollectionView() {
+        intelligenceHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         intelligenceHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         intelligenceHeroesCollectionView.dataSource = self
         intelligenceHeroesCollectionView.delegate = self

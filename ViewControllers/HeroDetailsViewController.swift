@@ -2,6 +2,8 @@ import UIKit
 
 final class HeroDetailsViewController: UIViewController {
     
+    //MARK: - Properties
+    
     var hero: [Hero]
     private let heroPictureImageView = UIImageView()
     private let heroNameLabel = UILabel()
@@ -22,6 +24,8 @@ final class HeroDetailsViewController: UIViewController {
     private let heroAttackRangeImageView = UIImageView()
     private let heroAttackRangeLabel = UILabel()
 
+    //MARK: - Initialization
+    
     init(hero: [Hero]) {
         self.hero = hero
         super.init(nibName: nil, bundle: nil)
@@ -30,6 +34,8 @@ final class HeroDetailsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,7 +196,7 @@ final class HeroDetailsViewController: UIViewController {
             heroNameLabel.textColor = .green
         }
         if hero[0].heroMainAttribute == "int" {
-            heroNameLabel.textColor = .tintColor
+            heroNameLabel.textColor = .cyan
         }
         
         NSLayoutConstraint.activate([

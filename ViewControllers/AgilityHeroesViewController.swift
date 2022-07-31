@@ -1,6 +1,8 @@
 import UIKit
 
 final class AgilityHeroesViewController: UIViewController {
+    
+    //MARK: - Properties
 
     private let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let backgroundIntoCollectionViewImageView = UIImageView()
@@ -14,11 +16,12 @@ final class AgilityHeroesViewController: UIViewController {
         }
     }
     
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         view.backgroundColor = .red
         setUpCollectionViewLayout()
         configureCollectionView()
-        
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
@@ -50,6 +53,7 @@ final class AgilityHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        agilityHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         agilityHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         agilityHeroesCollectionView.dataSource = self
         agilityHeroesCollectionView.delegate = self

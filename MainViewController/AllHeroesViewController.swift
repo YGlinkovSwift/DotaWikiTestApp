@@ -3,6 +3,8 @@ import CoreData
 
 final class AllHeroesViewController: UIViewController {
     
+    //MARK: - Properties
+    
     var dataProvider = DataProvider()
     private let backgroundIntoCollectionViewImageView = UIImageView()
     private let searchBar = UISearchBar()
@@ -14,6 +16,8 @@ final class AllHeroesViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Initialization
 
     init(dataProvider: DataProvider) {
         self.dataProvider = dataProvider
@@ -23,6 +27,8 @@ final class AllHeroesViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +84,7 @@ final class AllHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        allHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         allHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         allHeroesCollectionView.dataSource = self
         allHeroesCollectionView.delegate = self

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1581EED2896E7C300A0CF67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1581EEC2896E7C300A0CF67 /* HeaderView.swift */; };
 		C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */; };
 		C17B64732893176800EBFFCC /* AllHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */; };
 		C17B64752893179900EBFFCC /* DotaHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64742893179900EBFFCC /* DotaHero.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1581EEC2896E7C300A0CF67 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMageView + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AllHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64742893179900EBFFCC /* DotaHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotaHero.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C17B647F2893186000EBFFCC /* Hero.swift */,
+				C1581EEC2896E7C300A0CF67 /* HeaderView.swift */,
 				C17B64812893186000EBFFCC /* HeroCell.swift */,
 			);
 			path = Models;
@@ -121,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				C17B6493289318D500EBFFCC /* HeroDetailsViewController.swift */,
+				C17B6494289318D500EBFFCC /* StrangeHeroesViewController.swift */,
 				C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */,
 				C17B6496289318D500EBFFCC /* IntelligenceHeroesViewController.swift */,
-				C17B6494289318D500EBFFCC /* StrangeHeroesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				C17B64822893186000EBFFCC /* Hero.swift in Sources */,
 				C17B648F289318B000EBFFCC /* NetworkingManager.swift in Sources */,
 				C17B648D289318B000EBFFCC /* API.swift in Sources */,
+				C1581EED2896E7C300A0CF67 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

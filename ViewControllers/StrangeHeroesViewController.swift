@@ -1,6 +1,8 @@
 import UIKit
 
 final class StrangeHeroesViewController: UIViewController {
+    
+    //MARK: - Properties
 
     private let strangeHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let dataProvider = DataProvider()
@@ -12,6 +14,8 @@ final class StrangeHeroesViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         setUpCollectionViewLayout()
@@ -25,6 +29,8 @@ final class StrangeHeroesViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Private methods
     
     private func setUpCollectionViewLayout() {
         view.addSubview(strangeHeroesCollectionView)
@@ -44,6 +50,7 @@ final class StrangeHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        strangeHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         strangeHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         strangeHeroesCollectionView.dataSource = self
         strangeHeroesCollectionView.delegate = self

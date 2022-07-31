@@ -2,12 +2,15 @@ import UIKit
 
 final class TabBarViewController: UITabBarController  {
     
+    //MARK: - Private properties
+    
     private let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
     private let strangeHeroesViewController = StrangeHeroesViewController()
     private let agilityHeroesViewController = AgilityHeroesViewController()
     private let intelligenceHeroesViewController = IntelligenceHeroesViewController()
     private let refreshButton = UIButton()
     
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
