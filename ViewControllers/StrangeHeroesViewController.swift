@@ -3,10 +3,8 @@ import UIKit
 class StrangeHeroesViewController: UIViewController {
 
     let strangeHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    let networkingManager = NetworkingManager()
     var dataProvider = DataProvider()
     let backgroundIntoCollectionViewImageView = UIImageView()
-    
     var heroes: [Hero] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -16,11 +14,8 @@ class StrangeHeroesViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        view.backgroundColor = .red
         setUpCollectionViewLayout()
         configureCollectionView()
-        print("there are \(heroes.count)")
-        
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
@@ -29,8 +24,6 @@ class StrangeHeroesViewController: UIViewController {
                 print("error \(error)")
             }
         }
-        
-        
     }
     
     private func setUpCollectionViewLayout() {
@@ -51,7 +44,6 @@ class StrangeHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        strangeHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         strangeHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         strangeHeroesCollectionView.dataSource = self
         strangeHeroesCollectionView.delegate = self
@@ -92,12 +84,6 @@ extension StrangeHeroesViewController: UICollectionViewDataSource, UICollectionV
             return CGSize(width: width, height: width)
         }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
-        return view
-        
-    }
 }
 
 extension StrangeHeroesViewController: UICollectionViewDelegateFlowLayout {

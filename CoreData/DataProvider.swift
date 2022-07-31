@@ -11,9 +11,6 @@ class DataProvider {
     
     lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
         let fetchRequest = Item.fetchRequest()
-        //let fetchRequest = NSFetchRequest<Item>(entityName: "Item")
-        //fetchRequest.sortDescriptors = [NSSortDescriptor(key: "heroName", ascending: true)]
-
         let sort = [NSSortDescriptor(key: #keyPath(Item.heroName), ascending: false), NSSortDescriptor(key: #keyPath(Item.heroPortraitImageURL), ascending: false)]
        fetchRequest.sortDescriptors = sort
        let fetchedController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -26,14 +23,11 @@ class DataProvider {
            fatalError("\(nserror)")
        }
 
-        
        return fetchedController
 
    }()
 
     //MARK: - Methods
-    
-    
     
     func fetchHeroes(completion: @escaping (Result<[Hero], Error>) -> Void) {
         repository.request(endpoint: HeroesAPI.heroes) { (result: Result<[Hero], NetworkingError>) in
@@ -78,21 +72,12 @@ class DataProvider {
         }
     }
     
-    
     private func syncHeroes(result: Result<[Hero], NetworkingError>, taskContext: NSManagedObjectContext) -> Bool {
         var successfull = false
         taskContext.performAndWait {
             let matchingHeroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
             let heroName = result.map { [$0[0].heroName] }
             matchingHeroRequest.predicate = NSPredicate(format: "heroName in %@", argumentArray: [heroName])
-
-                do {
-                   //try taskContext.save()
-                } catch {
-                    print("error")
-                }
-                //taskContext.reset()
-        
         successfull = true
     }
         return successfull

@@ -1,6 +1,5 @@
 import UIKit
 
-
 extension UIImageView {
     func loadImageFromUrl(urlString: String, placeholder: UIImage? = nil) {
         self.image = nil

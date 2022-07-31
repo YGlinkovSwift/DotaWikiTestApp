@@ -1,9 +1,8 @@
 import UIKit
-// add forEach
+
 class HeroDetailsViewController: UIViewController {
     
     var hero: [Hero]
-    
     let heroPictureImageView = UIImageView()
     let heroNameLabel = UILabel()
     var heroImage = UIImage()
@@ -23,7 +22,6 @@ class HeroDetailsViewController: UIViewController {
     let heroAttackRangeImageView = UIImageView()
     let heroAttackRangeLabel = UILabel()
 
-    
     init(hero: [Hero]) {
         self.hero = hero
         super.init(nibName: nil, bundle: nil)
@@ -53,21 +51,40 @@ class HeroDetailsViewController: UIViewController {
         setUpHeroAttackTypeLabelLayout()
         setUpHeroAttackRangeImageViewLayout()
         setUpHeroAttackRangeLabelLayout()
-        
+        forEachIntoElementsOptimizeCodeMethod()
     }
     
     //MARK: Private methods
     
+    private func forEachIntoElementsOptimizeCodeMethod() {
+        [heroPictureImageView, heroIconImageView, heroAttackTypeImageView, heroAttackRangeImageView,strangeAttributeIconImageView, agilityAttributeIconImageView, intelligenceAttributeIconImageView].forEach {
+            $0.contentMode = .scaleAspectFit
+        }
+        
+        [heroPictureImageView, heroNameLabel, heroIconImageView, heroAttributeStrangeLabel, heroAttributeAgilityLabel, heroAttributeIntelligenceLabel, heroGameRolesLabel, strangeAttributeIconImageView, agilityAttributeIconImageView, intelligenceAttributeIconImageView, heroMainAttributeImageView, heroMoveSpeedImageView, heroMoveSpeedLabel,heroAttackTypeImageView, heroAttackTypeLabel, heroAttackRangeImageView,heroAttackRangeLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        [heroNameLabel, heroAttributeStrangeLabel, heroAttributeAgilityLabel, heroAttributeIntelligenceLabel, heroGameRolesLabel].forEach {
+            $0.textAlignment = .center
+        }
+        
+        [heroAttackRangeLabel,heroAttackTypeLabel,heroMoveSpeedLabel].forEach {
+            $0.textColor = .yellow
+        }
+        
+        [heroAttributeIntelligenceLabel, heroAttributeAgilityLabel, heroAttributeStrangeLabel, heroNameLabel,  heroAttackRangeLabel, heroMoveSpeedLabel].forEach {
+            $0.font = .systemFont(ofSize: 25)
+        }
+    }
+
     private func setUpHeroPictureImageViewLayout() {
         view.addSubview(heroPictureImageView)
-        heroPictureImageView.contentMode = .scaleAspectFit
-        heroPictureImageView.translatesAutoresizingMaskIntoConstraints = false
         let baseLink = "https://api.opendota.com"
         let fullHeroPortraitImageLink = baseLink + hero[0].heroPortraitImageURL
         let fullHeroIconImageLink = baseLink + hero[0].heroIconImageURL
         heroPictureImageView.loadImageFromUrl(urlString: fullHeroPortraitImageLink)
         heroIconImageView.loadImageFromUrl(urlString: fullHeroIconImageLink)
-        
         NSLayoutConstraint.activate([
             heroPictureImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 95),
             heroPictureImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -78,8 +95,6 @@ class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroIconImageViewLayout() {
         view.addSubview(heroIconImageView)
-        heroIconImageView.contentMode = .scaleAspectFit
-        heroIconImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroIconImageView.topAnchor.constraint(equalTo: heroNameLabel.bottomAnchor),
             heroIconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -104,9 +119,6 @@ class HeroDetailsViewController: UIViewController {
     private func setUpHeroMoveSpeedLabelLayout() {
         view.addSubview(heroMoveSpeedLabel)
         heroMoveSpeedLabel.text = String(hero[0].heroMoveSpeed)
-        heroMoveSpeedLabel.textColor = .yellow
-        heroMoveSpeedLabel.font = .systemFont(ofSize: 25)
-        heroMoveSpeedLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroMoveSpeedLabel.leadingAnchor.constraint(equalTo: heroMoveSpeedImageView.trailingAnchor, constant: 10),
             heroMoveSpeedLabel.topAnchor.constraint(equalTo: heroMainAttributeImageView.bottomAnchor, constant: 10),
@@ -118,8 +130,6 @@ class HeroDetailsViewController: UIViewController {
     private func setUpHeroAttackTypeImageViewLayout() {
         view.addSubview(heroAttackTypeImageView)
         heroAttackTypeImageView.image = UIImage(named: "heroTypeAttackImage")
-        heroAttackTypeImageView.contentMode = .scaleAspectFit
-        heroAttackTypeImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttackTypeImageView.leadingAnchor.constraint(equalTo: heroAttributeAgilityLabel.trailingAnchor, constant: 30),
             heroAttackTypeImageView.topAnchor.constraint(equalTo: heroMoveSpeedImageView.bottomAnchor, constant: 10),
@@ -137,9 +147,7 @@ class HeroDetailsViewController: UIViewController {
             heroAttackTypeLabel.text = hero[0].heroAttackType
         }
         
-        heroAttackTypeLabel.textColor = .yellow
         heroAttackTypeLabel.font = .systemFont(ofSize: 25)
-        heroAttackTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttackTypeLabel.leadingAnchor.constraint(equalTo: heroAttackTypeImageView.trailingAnchor),
             heroAttackTypeLabel.topAnchor.constraint(equalTo: heroMoveSpeedLabel.bottomAnchor, constant: 10),
@@ -151,8 +159,6 @@ class HeroDetailsViewController: UIViewController {
     private func setUpHeroAttackRangeImageViewLayout() {
         view.addSubview(heroAttackRangeImageView)
         heroAttackRangeImageView.image = UIImage(named: "heroAttackRangeImage")
-        heroAttackRangeImageView.contentMode = .scaleAspectFill
-        heroAttackRangeImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttackRangeImageView.leadingAnchor.constraint(equalTo: heroAttributeIntelligenceLabel.trailingAnchor, constant: 30),
             heroAttackRangeImageView.topAnchor.constraint(equalTo: heroAttackTypeImageView.bottomAnchor, constant: 10),
@@ -164,9 +170,7 @@ class HeroDetailsViewController: UIViewController {
     private func setUpHeroAttackRangeLabelLayout() {
         view.addSubview(heroAttackRangeLabel)
         heroAttackRangeLabel.text = String(hero[0].heroAttackRange)
-        heroAttackRangeLabel.font = .systemFont(ofSize: 25)
-        heroAttackRangeLabel.textColor = .yellow
-        heroAttackRangeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             heroAttackRangeLabel.leadingAnchor.constraint(equalTo: heroAttackRangeImageView.trailingAnchor, constant: 10),
             heroAttackRangeLabel.topAnchor.constraint(equalTo: heroAttackTypeLabel.bottomAnchor, constant: 10),
@@ -188,9 +192,7 @@ class HeroDetailsViewController: UIViewController {
         if hero[0].heroMainAttribute == "int" {
             heroNameLabel.textColor = .tintColor
         }
-        heroNameLabel.textAlignment = .center
-        heroNameLabel.font = .systemFont(ofSize: 25)
-        heroNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             heroNameLabel.topAnchor.constraint(equalTo: heroPictureImageView.bottomAnchor, constant: 10),
             heroNameLabel.centerXAnchor.constraint(equalTo: heroPictureImageView.centerXAnchor),
@@ -201,7 +203,6 @@ class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroMainAttributeImageView() {
         view.addSubview(heroMainAttributeImageView)
-        heroMainAttributeImageView.contentMode = .scaleAspectFit
         if hero[0].heroMainAttribute == "str" {
             heroMainAttributeImageView.image = UIImage(named: "strangeImage")
         }
@@ -211,23 +212,17 @@ class HeroDetailsViewController: UIViewController {
         if hero[0].heroMainAttribute == "int" {
             heroMainAttributeImageView.image = UIImage(named: "intelligenceImage")
         }
-        
-        heroMainAttributeImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroMainAttributeImageView.topAnchor.constraint(equalTo: heroIconImageView.bottomAnchor, constant: 5),
             heroMainAttributeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             heroMainAttributeImageView.widthAnchor.constraint(equalToConstant: 40),
             heroMainAttributeImageView.heightAnchor.constraint(equalToConstant: 40)
-        
         ])
     }
     
     private func setUpStrangeAttributePictureImageViewLayout() {
         view.addSubview(strangeAttributeIconImageView)
         strangeAttributeIconImageView.image = UIImage(named: "strangeImage")
-        strangeAttributeIconImageView.contentMode = .scaleAspectFit
-        strangeAttributeIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             strangeAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             strangeAttributeIconImageView.topAnchor.constraint(equalTo: heroMainAttributeImageView.bottomAnchor, constant: 10),
@@ -239,10 +234,7 @@ class HeroDetailsViewController: UIViewController {
     private func setUpBaseStrangeLabelLayout() {
         view.addSubview(heroAttributeStrangeLabel)
         heroAttributeStrangeLabel.text = "\(hero[0].heroBaseStrange) + \(hero[0].heroStrangePerLevel)"
-        heroAttributeStrangeLabel.textAlignment = .center
         heroAttributeStrangeLabel.textColor = .red
-        heroAttributeStrangeLabel.font = .systemFont(ofSize: 25)
-        heroAttributeStrangeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttributeStrangeLabel.topAnchor.constraint(equalTo: heroMainAttributeImageView.bottomAnchor, constant: 10),
             heroAttributeStrangeLabel.leadingAnchor.constraint(equalTo: strangeAttributeIconImageView.trailingAnchor),
@@ -254,25 +246,18 @@ class HeroDetailsViewController: UIViewController {
     private func setUpAgilityAttributePictureImageViewLayout() {
         view.addSubview(agilityAttributeIconImageView)
         agilityAttributeIconImageView.image = UIImage(named: "agilityImage")
-        agilityAttributeIconImageView.contentMode = .scaleAspectFit
-        agilityAttributeIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             agilityAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             agilityAttributeIconImageView.topAnchor.constraint(equalTo: strangeAttributeIconImageView.bottomAnchor, constant: 10),
             agilityAttributeIconImageView.widthAnchor.constraint(equalToConstant: 37),
             agilityAttributeIconImageView.heightAnchor.constraint(equalToConstant: 40)
         ])
-        
     }
     
     private func setUpBaseAgilityLabelLayout() {
         view.addSubview(heroAttributeAgilityLabel)
         heroAttributeAgilityLabel.text = "\(hero[0].heroBaseAgility) + \(hero[0].heroAgilityPerLevel)"
-        heroAttributeAgilityLabel.textAlignment = .center
         heroAttributeAgilityLabel.textColor = .green
-        heroAttributeAgilityLabel.font = .systemFont(ofSize: 25)
-        heroAttributeAgilityLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttributeAgilityLabel.topAnchor.constraint(equalTo: heroAttributeStrangeLabel.bottomAnchor, constant: 10),
             heroAttributeAgilityLabel.leadingAnchor.constraint(equalTo: agilityAttributeIconImageView.trailingAnchor),
@@ -281,13 +266,9 @@ class HeroDetailsViewController: UIViewController {
         ])
     }
     
-
     private func setUpIntelligenceAttributePictureImageViewLayout() {
         view.addSubview(intelligenceAttributeIconImageView)
         intelligenceAttributeIconImageView.image = UIImage(named: "intelligenceImage")
-        intelligenceAttributeIconImageView.contentMode = .scaleAspectFit
-        intelligenceAttributeIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             intelligenceAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             intelligenceAttributeIconImageView.topAnchor.constraint(equalTo: agilityAttributeIconImageView.bottomAnchor, constant: 10),
@@ -299,10 +280,7 @@ class HeroDetailsViewController: UIViewController {
     private func setUpBaseIntLabelLayout() {
         view.addSubview(heroAttributeIntelligenceLabel)
         heroAttributeIntelligenceLabel.text = "\(hero[0].heroBaseIntelligence) + \(hero[0].heroIntelligencePerLevel)"
-        heroAttributeIntelligenceLabel.textAlignment = .center
         heroAttributeIntelligenceLabel.textColor = .tintColor
-        heroAttributeIntelligenceLabel.font = .systemFont(ofSize: 25)
-        heroAttributeIntelligenceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroAttributeIntelligenceLabel.topAnchor.constraint(equalTo: heroAttributeAgilityLabel.bottomAnchor, constant: 10),
             heroAttributeIntelligenceLabel.leadingAnchor.constraint(equalTo: intelligenceAttributeIconImageView.trailingAnchor),
@@ -315,10 +293,8 @@ class HeroDetailsViewController: UIViewController {
         view.addSubview(heroGameRolesLabel)
         heroGameRolesLabel.text = "\(hero[0].heroGameRoles.joined(separator: ", "))"
         heroGameRolesLabel.textColor = .white
-        heroGameRolesLabel.textAlignment = .center
         heroGameRolesLabel.font = .systemFont(ofSize: 20)
         heroGameRolesLabel.numberOfLines = 2
-        heroGameRolesLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             heroGameRolesLabel.topAnchor.constraint(equalTo: heroAttributeIntelligenceLabel.bottomAnchor, constant: 10),
             heroGameRolesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),

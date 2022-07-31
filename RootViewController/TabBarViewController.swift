@@ -7,7 +7,6 @@ class TabBarViewController: UITabBarController  {
     let agilityHeroesViewController = AgilityHeroesViewController()
     let intelligenceHeroesViewController = IntelligenceHeroesViewController()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarController()
@@ -16,7 +15,6 @@ class TabBarViewController: UITabBarController  {
     
     // MARK: - Private methods
     
-
     private func configuteTabBar() {
         self.setViewControllers([allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController], animated: false)
         setUpTabBarController()
@@ -37,7 +35,6 @@ class TabBarViewController: UITabBarController  {
         strangeHeroesViewController.tabBarItem.image = UIImage(named: "strangeImage")
         agilityHeroesViewController.tabBarItem.image = UIImage(named: "agilityImage")
         intelligenceHeroesViewController.tabBarItem.image = UIImage(named: "intelligenceImage")
-        
     }
 }
 

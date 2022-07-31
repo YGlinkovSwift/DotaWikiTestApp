@@ -32,7 +32,6 @@ enum HeroesAPI: API {
         }
     }
     
-    
 }
 
 

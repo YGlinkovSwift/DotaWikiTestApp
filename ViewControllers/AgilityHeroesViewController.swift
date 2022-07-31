@@ -3,9 +3,7 @@ import UIKit
 class AgilityHeroesViewController: UIViewController {
 
     let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
     let backgroundIntoCollectionViewImageView = UIImageView()
-    let networkingManager = NetworkingManager()
     let dataProvider = DataProvider()
     
     var heroes: [Hero] = [] {
@@ -52,7 +50,6 @@ class AgilityHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        agilityHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         agilityHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         agilityHeroesCollectionView.dataSource = self
         agilityHeroesCollectionView.delegate = self
@@ -91,13 +88,7 @@ extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionV
             let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
             return CGSize(width: width, height: width)
         }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
-        return view
-        
-    }
+
 }
 
 extension AgilityHeroesViewController: UICollectionViewDelegateFlowLayout {

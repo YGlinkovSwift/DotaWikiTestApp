@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C17B64712893176800EBFFCC /* TabBarViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646E2893176700EBFFCC /* TabBarViewController + Extensions.swift */; };
 		C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */; };
 		C17B64732893176800EBFFCC /* AllHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */; };
 		C17B64752893179900EBFFCC /* DotaHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64742893179900EBFFCC /* DotaHero.swift */; };
 		C17B6477289317B100EBFFCC /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6476289317B100EBFFCC /* DataProvider.swift */; };
 		C17B6479289317BF00EBFFCC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6478289317BF00EBFFCC /* CoreDataStack.swift */; };
 		C17B64822893186000EBFFCC /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B647F2893186000EBFFCC /* Hero.swift */; };
-		C17B64832893186000EBFFCC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64802893186000EBFFCC /* HeaderView.swift */; };
 		C17B64842893186000EBFFCC /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64812893186000EBFFCC /* HeroCell.swift */; };
 		C17B648C289318B000EBFFCC /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6486289318AF00EBFFCC /* NetworkingError.swift */; };
 		C17B648D289318B000EBFFCC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6487289318AF00EBFFCC /* API.swift */; };
@@ -38,14 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C17B646E2893176700EBFFCC /* TabBarViewController + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabBarViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMageView + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AllHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64742893179900EBFFCC /* DotaHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotaHero.swift; sourceTree = "<group>"; };
 		C17B6476289317B100EBFFCC /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		C17B6478289317BF00EBFFCC /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C17B647F2893186000EBFFCC /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
-		C17B64802893186000EBFFCC /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C17B64812893186000EBFFCC /* HeroCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCell.swift; sourceTree = "<group>"; };
 		C17B6486289318AF00EBFFCC /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		C17B6487289318AF00EBFFCC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -85,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */,
-				C17B646E2893176700EBFFCC /* TabBarViewController + Extensions.swift */,
 				C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */,
 			);
 			path = Extensions;
@@ -94,7 +89,6 @@
 		C17B64852893186500EBFFCC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C17B64802893186000EBFFCC /* HeaderView.swift */,
 				C17B647F2893186000EBFFCC /* Hero.swift */,
 				C17B64812893186000EBFFCC /* HeroCell.swift */,
 			);
@@ -273,7 +267,6 @@
 				C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */,
 				C17B6479289317BF00EBFFCC /* CoreDataStack.swift in Sources */,
 				C1D577D128931375000FBDF0 /* AppDelegate.swift in Sources */,
-				C17B64712893176800EBFFCC /* TabBarViewController + Extensions.swift in Sources */,
 				C17B6491289318B000EBFFCC /* HTTPScheme.swift in Sources */,
 				C17B64732893176800EBFFCC /* AllHeroesViewController + Extensions.swift in Sources */,
 				C17B649B289318D500EBFFCC /* TabBarViewController.swift in Sources */,
@@ -284,7 +277,6 @@
 				C17B64822893186000EBFFCC /* Hero.swift in Sources */,
 				C17B648F289318B000EBFFCC /* NetworkingManager.swift in Sources */,
 				C17B648D289318B000EBFFCC /* API.swift in Sources */,
-				C17B64832893186000EBFFCC /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

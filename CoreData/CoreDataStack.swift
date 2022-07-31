@@ -3,7 +3,6 @@ import CoreData
 
 class CoreDataStack {
 
-    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DotaWiki")
         container.loadPersistentStores(completionHandler:  { (_, error) in
@@ -13,20 +12,10 @@ class CoreDataStack {
             self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
             fatalError("Unresolved error: \(error), \(error.userInfo)")
         })
-        
-        
-//        let persistentContainer = NSPersistentContainer(name: "DbName")
-//        persistentContainer.loadPersistentStores() { [weak self] _, error in
-//              self?.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
-//        }
-        
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.undoManager = nil
         container.viewContext.shouldDeleteInaccessibleFaults = true
         container.viewContext.automaticallyMergesChangesFromParent = true
-
         return container
-        
     }()
-    
 }

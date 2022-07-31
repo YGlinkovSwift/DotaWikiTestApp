@@ -5,15 +5,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        //let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-            //self.window = UIWindow(windowScene: windowScene)
         
         guard let windowScene = ( scene as? UIWindowScene ) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        
         let homeViewController = TabBarViewController()
         let rootNavigationController = UINavigationController(rootViewController: homeViewController)
         self.window?.rootViewController = rootNavigationController
@@ -48,7 +43,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
 
 }
 

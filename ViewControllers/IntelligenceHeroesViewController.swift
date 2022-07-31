@@ -4,8 +4,6 @@ class IntelligenceHeroesViewController: UIViewController {
     let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let dataProvider = DataProvider()
     let backgroundIntoCollectionViewImageView = UIImageView()
-    
-
     var heroes: [Hero] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -29,7 +27,6 @@ class IntelligenceHeroesViewController: UIViewController {
     }
     
     //MARK: - Private methods
-    
 
     private func setUpCollectionViewLayout() {
         view.addSubview(intelligenceHeroesCollectionView)
@@ -49,7 +46,6 @@ class IntelligenceHeroesViewController: UIViewController {
     }
 
     private func configureCollectionView() {
-        intelligenceHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         intelligenceHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
         intelligenceHeroesCollectionView.dataSource = self
         intelligenceHeroesCollectionView.delegate = self
@@ -71,7 +67,6 @@ extension IntelligenceHeroesViewController: UICollectionViewDataSource, UICollec
         return cell
     }
 
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let sortedHeroAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
@@ -89,12 +84,6 @@ extension IntelligenceHeroesViewController: UICollectionViewDataSource, UICollec
             return CGSize(width: width, height: width)
         }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
-        return view
-
-    }
 }
 
 extension IntelligenceHeroesViewController: UICollectionViewDelegateFlowLayout {

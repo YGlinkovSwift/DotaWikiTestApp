@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -34,22 +35,41 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
             return CGSize(width: width, height: width)
         }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
-        return view
-    }
 }
 
 extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width - 16 , height: 50)
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
-    
 }
+
+extension AllHeroesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        dataProvider.fetchHeroesPredicate(for: searchText) { result in
+            switch result {
+            case .success(let heroes):
+                self.heroes = heroes
+                print("sucesss!!! I found your heroes!!! here they are -\(heroes)")
+                DispatchQueue.main.async {
+                    self.allHeroesCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print("error \(error)")
+            }
+        }
+        self.allHeroesCollectionView.reloadData()
+    }
+}
+
+extension AllHeroesViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.allHeroesCollectionView.reloadData()
+    }
+
+}
+
 

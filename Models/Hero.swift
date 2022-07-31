@@ -16,7 +16,6 @@ struct Hero: Codable {
     let heroMoveSpeed: Int
     let heroGameRoles: [String]
     
-    
     enum CodingKeys: String, CodingKey {
         case heroName = "localized_name"
         case heroMainAttribute = "primary_attr"
