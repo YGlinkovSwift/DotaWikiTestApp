@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C1581EED2896E7C300A0CF67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1581EEC2896E7C300A0CF67 /* HeaderView.swift */; };
+		C1581EF32897417C00A0CF67 /* Warrior Brush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */; };
 		C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */; };
 		C17B64732893176800EBFFCC /* AllHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */; };
 		C17B64752893179900EBFFCC /* DotaHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B64742893179900EBFFCC /* DotaHero.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		C1581EEC2896E7C300A0CF67 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Warrior Brush.ttf"; sourceTree = "<group>"; };
 		C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMageView + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AllHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C17B64742893179900EBFFCC /* DotaHero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotaHero.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1581EF4289741DF00A0CF67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		C17B647E2893183700EBFFCC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		C1D577C428931375000FBDF0 = {
 			isa = PBXGroup;
 			children = (
+				C1581EF4289741DF00A0CF67 /* Fonts */,
 				C1BD34892896DF4200AE637C /* AppDelegates */,
 				C1F350E8289467FD00F440C1 /* RootViewController */,
 				C1F350E72894450B00F440C1 /* MainViewController */,
@@ -261,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1581EF32897417C00A0CF67 /* Warrior Brush.ttf in Resources */,
 				C17B64A1289319C600EBFFCC /* Assets.xcassets in Resources */,
 				C1D577E028931375000FBDF0 /* LaunchScreen.storyboard in Resources */,
 			);

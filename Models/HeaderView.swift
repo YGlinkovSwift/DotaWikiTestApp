@@ -25,9 +25,9 @@ class HeaderView: UICollectionReusableView {
     private func setUpAppNameTextLabelInsideHeaderView() {
         [leftAppNameLabel, rightAppNameLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.textColor = .systemIndigo
+            $0.textColor = .yellow
             $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 25)
+            $0.font = UIFont(name: "Warrior Brush", size: 35)
         }
         addSubview(leftAppNameLabel)
         leftAppNameLabel.text = "DOTA"
