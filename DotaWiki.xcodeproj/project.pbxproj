@@ -95,6 +95,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		C1581EF52897437400A0CF67 /* SystemUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C1D577DE28931375000FBDF0 /* LaunchScreen.storyboard */,
+				C1D577E128931375000FBDF0 /* Info.plist */,
+				C17B64A0289319C600EBFFCC /* Assets.xcassets */,
+			);
+			path = SystemUtilities;
+			sourceTree = "<group>";
+		};
 		C17B647E2893183700EBFFCC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +163,7 @@
 		C1D577C428931375000FBDF0 = {
 			isa = PBXGroup;
 			children = (
+				C1581EF52897437400A0CF67 /* SystemUtilities */,
 				C1581EF4289741DF00A0CF67 /* Fonts */,
 				C1BD34892896DF4200AE637C /* AppDelegates */,
 				C1F350E8289467FD00F440C1 /* RootViewController */,
@@ -178,9 +189,6 @@
 		C1D577CF28931375000FBDF0 /* DotaWiki */ = {
 			isa = PBXGroup;
 			children = (
-				C1D577DE28931375000FBDF0 /* LaunchScreen.storyboard */,
-				C17B64A0289319C600EBFFCC /* Assets.xcassets */,
-				C1D577E128931375000FBDF0 /* Info.plist */,
 			);
 			path = DotaWiki;
 			sourceTree = "<group>";
