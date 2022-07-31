@@ -1,13 +1,13 @@
 import UIKit
 import CoreData
 
-class AllHeroesViewController: UIViewController {
+final class AllHeroesViewController: UIViewController {
     
     var dataProvider = DataProvider()
-    let backgroundIntoCollectionViewImageView = UIImageView()
-    let searchBar = UISearchBar()
+    private let backgroundIntoCollectionViewImageView = UIImageView()
+    private let searchBar = UISearchBar()
     let allHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var heroes: [Hero] = [] {
+    lazy var heroes: [Hero] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.allHeroesCollectionView.reloadData()

@@ -27,6 +27,9 @@
 		C17B649D289318D500EBFFCC /* AgilityHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */; };
 		C17B649E289318D500EBFFCC /* AllHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6498289318D500EBFFCC /* AllHeroesViewController.swift */; };
 		C17B64A1289319C600EBFFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C17B64A0289319C600EBFFCC /* Assets.xcassets */; };
+		C1BD34842896D99500AE637C /* AgilityHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BD34832896D99500AE637C /* AgilityHeroesViewController + Extensions.swift */; };
+		C1BD34862896D9E800AE637C /* StrangeHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BD34852896D9E800AE637C /* StrangeHeroesViewController + Extensions.swift */; };
+		C1BD34882896DA3900AE637C /* IntelligenceHeroesViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BD34872896DA3900AE637C /* IntelligenceHeroesViewController + Extensions.swift */; };
 		C1D577D128931375000FBDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D577D028931375000FBDF0 /* AppDelegate.swift */; };
 		C1D577D328931375000FBDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D577D228931375000FBDF0 /* SceneDelegate.swift */; };
 		C1D577DB28931375000FBDF0 /* DotaWiki.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1D577D928931375000FBDF0 /* DotaWiki.xcdatamodeld */; };
@@ -56,6 +59,9 @@
 		C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgilityHeroesViewController.swift; sourceTree = "<group>"; };
 		C17B6498289318D500EBFFCC /* AllHeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllHeroesViewController.swift; sourceTree = "<group>"; };
 		C17B64A0289319C600EBFFCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1BD34832896D99500AE637C /* AgilityHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AgilityHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
+		C1BD34852896D9E800AE637C /* StrangeHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrangeHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
+		C1BD34872896DA3900AE637C /* IntelligenceHeroesViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntelligenceHeroesViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C1D577CD28931375000FBDF0 /* DotaWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotaWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D577D028931375000FBDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D577D228931375000FBDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 			children = (
 				C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */,
 				C17B64702893176800EBFFCC /* AllHeroesViewController + Extensions.swift */,
+				C1BD34832896D99500AE637C /* AgilityHeroesViewController + Extensions.swift */,
+				C1BD34852896D9E800AE637C /* StrangeHeroesViewController + Extensions.swift */,
+				C1BD34872896DA3900AE637C /* IntelligenceHeroesViewController + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -119,9 +128,19 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		C1BD34892896DF4200AE637C /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				C1D577D228931375000FBDF0 /* SceneDelegate.swift */,
+				C1D577D028931375000FBDF0 /* AppDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
 		C1D577C428931375000FBDF0 = {
 			isa = PBXGroup;
 			children = (
+				C1BD34892896DF4200AE637C /* AppDelegates */,
 				C1F350E8289467FD00F440C1 /* RootViewController */,
 				C1F350E72894450B00F440C1 /* MainViewController */,
 				C17B649F289318D900EBFFCC /* ViewControllers */,
@@ -145,8 +164,6 @@
 		C1D577CF28931375000FBDF0 /* DotaWiki */ = {
 			isa = PBXGroup;
 			children = (
-				C1D577D028931375000FBDF0 /* AppDelegate.swift */,
-				C1D577D228931375000FBDF0 /* SceneDelegate.swift */,
 				C1D577DE28931375000FBDF0 /* LaunchScreen.storyboard */,
 				C17B64A0289319C600EBFFCC /* Assets.xcassets */,
 				C1D577E128931375000FBDF0 /* Info.plist */,
@@ -258,14 +275,17 @@
 				C1D577E9289313D7000FBDF0 /* Item+CoreDataClass.swift in Sources */,
 				C17B6499289318D500EBFFCC /* HeroDetailsViewController.swift in Sources */,
 				C17B6477289317B100EBFFCC /* DataProvider.swift in Sources */,
+				C1BD34862896D9E800AE637C /* StrangeHeroesViewController + Extensions.swift in Sources */,
 				C17B6490289318B000EBFFCC /* HeroesApi.swift in Sources */,
 				C1D577DB28931375000FBDF0 /* DotaWiki.xcdatamodeld in Sources */,
+				C1BD34882896DA3900AE637C /* IntelligenceHeroesViewController + Extensions.swift in Sources */,
 				C17B648C289318B000EBFFCC /* NetworkingError.swift in Sources */,
 				C17B649E289318D500EBFFCC /* AllHeroesViewController.swift in Sources */,
 				C17B64752893179900EBFFCC /* DotaHero.swift in Sources */,
 				C17B64842893186000EBFFCC /* HeroCell.swift in Sources */,
 				C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */,
 				C17B6479289317BF00EBFFCC /* CoreDataStack.swift in Sources */,
+				C1BD34842896D99500AE637C /* AgilityHeroesViewController + Extensions.swift in Sources */,
 				C1D577D128931375000FBDF0 /* AppDelegate.swift in Sources */,
 				C17B6491289318B000EBFFCC /* HTTPScheme.swift in Sources */,
 				C17B64732893176800EBFFCC /* AllHeroesViewController + Extensions.swift in Sources */,

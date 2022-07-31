@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class DotaHero: NSManagedObject {
+final class DotaHero: NSManagedObject {
     @NSManaged var heroName: String
     @NSManaged var heroPortraitImageURL: String
     

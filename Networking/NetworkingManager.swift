@@ -1,6 +1,6 @@
 import Foundation
 
-class NetworkingManager: Codable {
+final class NetworkingManager: Codable {
     
     private func buildURL(endpoind: API) -> URLComponents {
         var components = URLComponents()

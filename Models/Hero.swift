@@ -32,5 +32,5 @@ struct Hero: Codable {
         case heroMoveSpeed = "move_speed"
         case heroGameRoles = "roles"
     }
-
+    
 }

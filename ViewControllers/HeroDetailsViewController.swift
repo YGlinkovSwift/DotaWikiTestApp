@@ -1,26 +1,26 @@
 import UIKit
 
-class HeroDetailsViewController: UIViewController {
+final class HeroDetailsViewController: UIViewController {
     
     var hero: [Hero]
-    let heroPictureImageView = UIImageView()
-    let heroNameLabel = UILabel()
-    var heroImage = UIImage()
-    var heroIconImageView = UIImageView()
-    let heroAttributeStrangeLabel = UILabel()
-    let heroAttributeAgilityLabel = UILabel()
-    let heroAttributeIntelligenceLabel = UILabel()
-    let heroGameRolesLabel = UILabel()
-    let strangeAttributeIconImageView = UIImageView()
-    let agilityAttributeIconImageView = UIImageView()
-    let intelligenceAttributeIconImageView = UIImageView()
-    let heroMainAttributeImageView = UIImageView()
-    var heroMoveSpeedImageView = UIImageView()
-    let heroMoveSpeedLabel = UILabel()
-    let heroAttackTypeImageView = UIImageView()
-    let heroAttackTypeLabel = UILabel()
-    let heroAttackRangeImageView = UIImageView()
-    let heroAttackRangeLabel = UILabel()
+    private let heroPictureImageView = UIImageView()
+    private let heroNameLabel = UILabel()
+    private var heroImage = UIImage()
+    private var heroIconImageView = UIImageView()
+    private let heroAttributeStrangeLabel = UILabel()
+    private let heroAttributeAgilityLabel = UILabel()
+    private let heroAttributeIntelligenceLabel = UILabel()
+    private let heroGameRolesLabel = UILabel()
+    private let strangeAttributeIconImageView = UIImageView()
+    private let agilityAttributeIconImageView = UIImageView()
+    private let intelligenceAttributeIconImageView = UIImageView()
+    private let heroMainAttributeImageView = UIImageView()
+    private var heroMoveSpeedImageView = UIImageView()
+    private let heroMoveSpeedLabel = UILabel()
+    private let heroAttackTypeImageView = UIImageView()
+    private let heroAttackTypeLabel = UILabel()
+    private let heroAttackRangeImageView = UIImageView()
+    private let heroAttackRangeLabel = UILabel()
 
     init(hero: [Hero]) {
         self.hero = hero

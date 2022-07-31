@@ -1,19 +1,26 @@
 import UIKit
 
-class TabBarViewController: UITabBarController  {
+final class TabBarViewController: UITabBarController  {
     
-    let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
-    let strangeHeroesViewController = StrangeHeroesViewController()
-    let agilityHeroesViewController = AgilityHeroesViewController()
-    let intelligenceHeroesViewController = IntelligenceHeroesViewController()
+    private let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
+    private let strangeHeroesViewController = StrangeHeroesViewController()
+    private let agilityHeroesViewController = AgilityHeroesViewController()
+    private let intelligenceHeroesViewController = IntelligenceHeroesViewController()
+    private let refreshButton = UIButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarController()
         configuteTabBar()
+        configureRefreshButton()
     }
     
     // MARK: - Private methods
+    
+    private func configureRefreshButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
+    }
     
     private func configuteTabBar() {
         self.setViewControllers([allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController], animated: false)
@@ -22,7 +29,7 @@ class TabBarViewController: UITabBarController  {
         self.tabBar.isTranslucent = false
         self.tabBar.alpha = 0.94
         self.tabBar.unselectedItemTintColor = .yellow
-        self.tabBar.selectedImageTintColor = .lightGray
+        self.tabBar.tintColor = .lightGray
         self.navigationItem.titleView?.isHidden = false
     }
     
@@ -35,6 +42,11 @@ class TabBarViewController: UITabBarController  {
         strangeHeroesViewController.tabBarItem.image = UIImage(named: "strangeImage")
         agilityHeroesViewController.tabBarItem.image = UIImage(named: "agilityImage")
         intelligenceHeroesViewController.tabBarItem.image = UIImage(named: "intelligenceImage")
+    }
+    
+    //MARK: - Actions
+    @objc func refreshButtonTapped() {
+        allHeroesViewController.allHeroesCollectionView.reloadData()
     }
 }
 

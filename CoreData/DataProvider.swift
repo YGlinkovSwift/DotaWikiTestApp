@@ -1,32 +1,32 @@
 import Foundation
 import CoreData
 
-class DataProvider {
+final class DataProvider {
     
-    var viewContext: NSManagedObjectContext {
+    private var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
-    let repository: NetworkingManager = NetworkingManager()
+    private let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
+    private let repository: NetworkingManager = NetworkingManager()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
         let fetchRequest = Item.fetchRequest()
         let sort = [NSSortDescriptor(key: #keyPath(Item.heroName), ascending: false), NSSortDescriptor(key: #keyPath(Item.heroPortraitImageURL), ascending: false)]
-       fetchRequest.sortDescriptors = sort
-       let fetchedController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:viewContext, sectionNameKeyPath: nil, cacheName: nil)
-       
-
-       do {
-           try fetchedController.performFetch()
-       } catch {
-           let nserror = error as NSError
-           fatalError("\(nserror)")
-       }
-
-       return fetchedController
-
-   }()
-
+        fetchRequest.sortDescriptors = sort
+        let fetchedController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        
+        do {
+            try fetchedController.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("\(nserror)")
+        }
+        
+        return fetchedController
+        
+    }()
+    
     //MARK: - Methods
     
     func fetchHeroes(completion: @escaping (Result<[Hero], Error>) -> Void) {
@@ -38,12 +38,12 @@ class DataProvider {
                 completion(.failure(error))
             }
             
-        let taskContext = self.persistentContainer.newBackgroundContext()
-        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        taskContext.undoManager = nil
-        
+            let taskContext = self.persistentContainer.newBackgroundContext()
+            taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            taskContext.undoManager = nil
+            
             _ = self.syncHeroes(result: result, taskContext: taskContext)
-        
+            
         }
     }
     
@@ -78,9 +78,9 @@ class DataProvider {
             let matchingHeroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
             let heroName = result.map { [$0[0].heroName] }
             matchingHeroRequest.predicate = NSPredicate(format: "heroName in %@", argumentArray: [heroName])
-        successfull = true
-    }
+            successfull = true
+        }
         return successfull
     }
-
+    
 }

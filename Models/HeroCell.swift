@@ -1,9 +1,9 @@
 import UIKit
 
-class CustomCell: UICollectionViewCell {
+final class CustomCell: UICollectionViewCell {
     
-    var HeroNameTextLabel = UILabel()
-    let HeroPortraitImageView = UIImageView()
+    private lazy var HeroNameTextLabel = UILabel()
+    private let HeroPortraitImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
