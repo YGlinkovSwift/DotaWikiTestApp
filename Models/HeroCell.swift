@@ -23,13 +23,12 @@ final class CustomCell: UICollectionViewCell {
     
     private func setUpHeroPortraitImageViewLayout() {
         contentView.addSubview(HeroPortraitImageView)
-        HeroPortraitImageView.layer.borderWidth = 0
         HeroPortraitImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             HeroPortraitImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             HeroPortraitImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            HeroPortraitImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
+            HeroPortraitImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             HeroPortraitImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
@@ -47,7 +46,7 @@ final class CustomCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             HeroNameTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             HeroNameTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            HeroNameTextLabel.topAnchor.constraint(equalTo: HeroPortraitImageView.bottomAnchor, constant: 5)
+            HeroNameTextLabel.topAnchor.constraint(equalTo: HeroPortraitImageView.bottomAnchor, constant: -20)
         ])
     }
     

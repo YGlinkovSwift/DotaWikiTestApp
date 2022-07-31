@@ -49,7 +49,18 @@ final class TabBarViewController: UITabBarController  {
     
     //MARK: - Actions
     @objc func refreshButtonTapped() {
-        allHeroesViewController.allHeroesCollectionView.reloadData()
+        allHeroesViewController.searchBar.text = ""
+        allHeroesViewController.dataProvider.fetchHeroes { result in
+            switch result {
+            case .success(let heroes):
+                self.allHeroesViewController.heroes = heroes
+            case .failure(let error):
+                print("error \(error)")
+            }
+        }
+        [strangeHeroesViewController.strangeHeroesCollectionView, allHeroesViewController.allHeroesCollectionView, agilityHeroesViewController.agilityHeroesCollectionView, intelligenceHeroesViewController.intelligenceHeroesCollectionView].forEach {
+            $0.reloadData()
+        }
     }
 }
 

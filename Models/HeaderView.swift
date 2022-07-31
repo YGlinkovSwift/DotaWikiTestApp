@@ -56,7 +56,9 @@ class HeaderView: UICollectionReusableView {
             headerImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             headerImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20),
             headerImageView.widthAnchor.constraint(equalToConstant: 90),
-            headerImageView.heightAnchor.constraint(equalToConstant: 100)
+            headerImageView.heightAnchor.constraint(equalToConstant: 65)
+
+            
         ])
     }
 }

@@ -4,7 +4,7 @@ final class IntelligenceHeroesViewController: UIViewController {
     
     //MARK: - Properties
     
-   private let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+   let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
    private let dataProvider = DataProvider()
    private let backgroundIntoCollectionViewImageView = UIImageView()
    lazy var heroes: [Hero] = [] {

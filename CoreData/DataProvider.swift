@@ -3,11 +3,11 @@ import CoreData
 
 final class DataProvider {
     
-    private var viewContext: NSManagedObjectContext {
+    var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    private let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
-    private let repository: NetworkingManager = NetworkingManager()
+    let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
+    let repository: NetworkingManager = NetworkingManager()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
         let fetchRequest = Item.fetchRequest()

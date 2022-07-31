@@ -4,7 +4,7 @@ final class StrangeHeroesViewController: UIViewController {
     
     //MARK: - Properties
 
-    private let strangeHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let strangeHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let dataProvider = DataProvider()
     private let backgroundIntoCollectionViewImageView = UIImageView()
     lazy var heroes: [Hero] = [] {

@@ -4,7 +4,7 @@ final class AgilityHeroesViewController: UIViewController {
     
     //MARK: - Properties
 
-    private let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let backgroundIntoCollectionViewImageView = UIImageView()
     private let dataProvider = DataProvider()
     

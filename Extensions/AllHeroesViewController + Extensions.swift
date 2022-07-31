@@ -1,9 +1,11 @@
 import UIKit
 import CoreData
 
-//MARK: - Extensions
 
 extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+
+     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return heroes.count
@@ -51,31 +53,68 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
 }
 
 extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
- 
-    
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
 }
 
 extension AllHeroesViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        dataProvider.fetchHeroesPredicate(for: searchText) { result in
+        if searchBar.text == nil || searchBar.text == ""
+        {
+            searchBar.perform(#selector(self.resignFirstResponder), with: nil, afterDelay: 0.0)
+        } else {
+            allHeroesCollectionView.reloadData()
+        }
+        
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+        searchBar.inputViewController?.dismissKeyboard()
+        self.allHeroesCollectionView.keyboardDismissMode = .onDrag
+        allHeroesCollectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        dataProvider.fetchHeroesPredicate(for: searchBar.text!) { result in
+            switch result {
+            case .success(let fetchedHeroes):
+                DispatchQueue.main.async {
+                    self.heroes = fetchedHeroes.filter { $0.heroName.contains(searchBar.text!) }
+                    if self.heroes.count >= 1 {
+                        print("success")
+                    } else {
+                        self.showAlert()
+                        print("can't find heroes by this name")
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        allHeroesCollectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
                 self.heroes = heroes
-                print("sucesss!!! I found your heroes!!! here they are -\(heroes)")
-                DispatchQueue.main.async {
-                    self.allHeroesCollectionView.reloadData()
-                }
             case .failure(let error):
                 print("error \(error)")
             }
         }
-        self.allHeroesCollectionView.reloadData()
+        allHeroesCollectionView.reloadData()
     }
+
 }
+
 
 extension AllHeroesViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -83,5 +122,4 @@ extension AllHeroesViewController: NSFetchedResultsControllerDelegate {
     }
 
 }
-
 
