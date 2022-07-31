@@ -1,12 +1,10 @@
-
-// X
-
 import UIKit
 
 class AgilityHeroesViewController: UIViewController {
 
     let agilityHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let allHeroesViewController = AllHeroesViewController(dataProvider: DataProvider())
+    let backgroundIntoCollectionViewImageView = UIImageView()
     let networkingManager = NetworkingManager()
     let dataProvider = DataProvider()
     
@@ -41,6 +39,9 @@ class AgilityHeroesViewController: UIViewController {
         agilityHeroesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         agilityHeroesCollectionView.backgroundColor = .black
         agilityHeroesCollectionView.layer.borderWidth = 1
+        backgroundIntoCollectionViewImageView.image = UIImage(named: "dotaLogoImage")
+        backgroundIntoCollectionViewImageView.contentMode = .scaleAspectFit
+        agilityHeroesCollectionView.backgroundView = backgroundIntoCollectionViewImageView
         
         NSLayoutConstraint.activate([
             agilityHeroesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -62,7 +63,6 @@ extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         heroes.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,14 +102,13 @@ extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionV
 
 extension AgilityHeroesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width - 16, height: 50)
+        return CGSize(width: collectionView.bounds.size.width - 0, height: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
     
-
 }
 
 

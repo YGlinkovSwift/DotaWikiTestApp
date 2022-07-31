@@ -117,8 +117,8 @@
 		C17B649F289318D900EBFFCC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */,
 				C17B6493289318D500EBFFCC /* HeroDetailsViewController.swift */,
+				C17B6497289318D500EBFFCC /* AgilityHeroesViewController.swift */,
 				C17B6496289318D500EBFFCC /* IntelligenceHeroesViewController.swift */,
 				C17B6494289318D500EBFFCC /* StrangeHeroesViewController.swift */,
 			);

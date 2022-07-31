@@ -43,7 +43,7 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width - 0, height: 0)
+        return CGSize(width: collectionView.bounds.size.width - 16 , height: 50)
         
     }
 

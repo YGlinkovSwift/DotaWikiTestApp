@@ -6,29 +6,17 @@ class TabBarViewController: UITabBarController  {
     let strangeHeroesViewController = StrangeHeroesViewController()
     let agilityHeroesViewController = AgilityHeroesViewController()
     let intelligenceHeroesViewController = IntelligenceHeroesViewController()
-    let searchBar = UISearchBar()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarController()
         configuteTabBar()
-        setUpSearchBarLayout()
     }
     
     // MARK: - Private methods
     
-    private func setUpSearchBarLayout() {
-        navigationItem.titleView = searchBar
-        searchBar.searchBarStyle = .prominent
-        searchBar.isTranslucent = true
-        searchBar.tintColor = .yellow
-        searchBar.searchTextField.delegate = self
-        searchBar.searchTextField.textColor = .white
-        searchBar.placeholder = "Search all heroes by name..."
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-    }
-    
+
     private func configuteTabBar() {
         self.setViewControllers([allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController], animated: false)
         setUpTabBarController()

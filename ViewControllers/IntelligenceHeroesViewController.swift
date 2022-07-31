@@ -3,6 +3,7 @@ import UIKit
 class IntelligenceHeroesViewController: UIViewController {
     let intelligenceHeroesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let dataProvider = DataProvider()
+    let backgroundIntoCollectionViewImageView = UIImageView()
     
 
     var heroes: [Hero] = [] {
@@ -35,6 +36,9 @@ class IntelligenceHeroesViewController: UIViewController {
         intelligenceHeroesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         intelligenceHeroesCollectionView.backgroundColor = .black
         intelligenceHeroesCollectionView.layer.borderWidth = 1
+        backgroundIntoCollectionViewImageView.image = UIImage(named: "dotaLogoImage")
+        backgroundIntoCollectionViewImageView.contentMode = .scaleAspectFit
+        intelligenceHeroesCollectionView.backgroundView = backgroundIntoCollectionViewImageView
 
         NSLayoutConstraint.activate([
             intelligenceHeroesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -95,7 +99,7 @@ extension IntelligenceHeroesViewController: UICollectionViewDataSource, UICollec
 
 extension IntelligenceHeroesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width - 16, height: 50)
+        return CGSize(width: collectionView.bounds.size.width - 0, height: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
