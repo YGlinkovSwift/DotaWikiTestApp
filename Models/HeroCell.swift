@@ -54,17 +54,17 @@ final class CustomCell: UICollectionViewCell {
         HeroPortraitImageView.contentMode = .scaleAspectFit
         HeroNameTextLabel.text = model.heroName
         
-        let defaultLink = "https://api.opendota.com"
+        let defaultLink = BaseLinkEnum.baseLinkURL
         let completeLink = defaultLink + model.heroPortraitImageURL
         HeroPortraitImageView.loadImageFromUrl(urlString: completeLink)
         
-        if model.heroMainAttribute == "str" {
+        if model.heroMainAttribute == HeroMainAttributeEnum.str {
             HeroNameTextLabel.textColor = .red
         }
-        if model.heroMainAttribute == "agi" {
+        if model.heroMainAttribute == HeroMainAttributeEnum.agi {
             HeroNameTextLabel.textColor = .green
         }
-        if model.heroMainAttribute == "int" {
+        if model.heroMainAttribute == HeroMainAttributeEnum.int {
             HeroNameTextLabel.textColor = .cyan
         }
     

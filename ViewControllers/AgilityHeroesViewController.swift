@@ -25,7 +25,7 @@ final class AgilityHeroesViewController: UIViewController {
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
-                self.heroes = heroes.filter { $0.heroMainAttribute == "agi" }
+                self.heroes = heroes.filter { $0.heroMainAttribute == HeroMainAttributeEnum.agi }
             case .failure(let error):
                 print("error \(error)")
             }
@@ -40,7 +40,7 @@ final class AgilityHeroesViewController: UIViewController {
         agilityHeroesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         agilityHeroesCollectionView.backgroundColor = .black
         agilityHeroesCollectionView.layer.borderWidth = 1
-        backgroundIntoCollectionViewImageView.image = UIImage(named: "dotaLogoImage")
+        backgroundIntoCollectionViewImageView.image = UIIMageEnum.dotaLogoImage
         backgroundIntoCollectionViewImageView.contentMode = .scaleAspectFit
         agilityHeroesCollectionView.backgroundView = backgroundIntoCollectionViewImageView
         
@@ -53,8 +53,8 @@ final class AgilityHeroesViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        agilityHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        agilityHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
+        agilityHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReuseIdentifierEnum.headerView)
+        agilityHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: ReuseIdentifierEnum.customCell)
         agilityHeroesCollectionView.dataSource = self
         agilityHeroesCollectionView.delegate = self
     }

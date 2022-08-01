@@ -13,7 +13,7 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? CustomCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifierEnum.customCell, for: indexPath) as? CustomCell
         else { return UICollectionViewCell() }
         let sortedHeroesAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
         let cellModel = sortedHeroesAlphabetically[indexPath.row]
@@ -46,7 +46,7 @@ extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ReuseIdentifierEnum.headerView, for: indexPath) as! HeaderView
         return view
     }
     
@@ -61,7 +61,7 @@ extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
 extension AllHeroesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == ""
+        if searchBar.text == nil || searchBar.text == SearchBarEnum.emptyText
         {
             searchBar.perform(#selector(self.resignFirstResponder), with: nil, afterDelay: 0.0)
         } else {
@@ -86,10 +86,8 @@ extension AllHeroesViewController: UISearchBarDelegate {
                 DispatchQueue.main.async {
                     self.heroes = fetchedHeroes.filter { $0.heroName.contains(searchBar.text!) }
                     if self.heroes.count >= 1 {
-                        print("success")
                     } else {
                         self.showAlert()
-                        print("can't find heroes by this name")
                     }
                 }
             case .failure(let error):
@@ -101,7 +99,7 @@ extension AllHeroesViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
+        searchBar.text = SearchBarEnum.emptyText
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
@@ -115,11 +113,9 @@ extension AllHeroesViewController: UISearchBarDelegate {
 
 }
 
-
 extension AllHeroesViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.allHeroesCollectionView.reloadData()
     }
-
 }
 

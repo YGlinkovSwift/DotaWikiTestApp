@@ -4,7 +4,7 @@ import CoreData
 final class CoreDataStack {
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "DotaWiki")
+        let container = NSPersistentContainer(name: CoreDataEnums.containerName)
         container.loadPersistentStores(completionHandler:  { (_, error) in
             guard let error = error as NSError? else {
                 return

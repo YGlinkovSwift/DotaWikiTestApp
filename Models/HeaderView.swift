@@ -27,10 +27,10 @@ class HeaderView: UICollectionReusableView {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.textColor = .yellow
             $0.textAlignment = .center
-            $0.font = UIFont(name: "Warrior Brush", size: 35)
+            $0.font = UIFontEnum.warriorBrush
         }
         addSubview(leftAppNameLabel)
-        leftAppNameLabel.text = "DOTA"
+        leftAppNameLabel.text = AppNameLabelEnum.dota
         NSLayoutConstraint.activate([
             leftAppNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             leftAppNameLabel.trailingAnchor.constraint(equalTo: headerImageView.leadingAnchor),
@@ -38,7 +38,7 @@ class HeaderView: UICollectionReusableView {
             leftAppNameLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
         addSubview(rightAppNameLabel)
-        rightAppNameLabel.text = "WIKI"
+        rightAppNameLabel.text = AppNameLabelEnum.wiki
         NSLayoutConstraint.activate([
             rightAppNameLabel.leadingAnchor.constraint(equalTo: headerImageView.trailingAnchor),
             rightAppNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -48,7 +48,7 @@ class HeaderView: UICollectionReusableView {
     }
     
     private func setUpLayout() {
-        headerImageView.image = UIImage(named: "dotaLogoImage")
+        headerImageView.image = UIIMageEnum.dotaLogoImage
         addSubview(headerImageView)
         headerImageView.contentMode = .scaleAspectFill
         headerImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,8 +57,6 @@ class HeaderView: UICollectionReusableView {
             headerImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20),
             headerImageView.widthAnchor.constraint(equalToConstant: 90),
             headerImageView.heightAnchor.constraint(equalToConstant: 65)
-
-            
         ])
     }
 }

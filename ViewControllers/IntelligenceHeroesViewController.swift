@@ -24,7 +24,7 @@ final class IntelligenceHeroesViewController: UIViewController {
         dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):
-                self.heroes = heroes.filter { $0.heroMainAttribute == "int" }
+                self.heroes = heroes.filter { $0.heroMainAttribute == HeroMainAttributeEnum.int }
             case .failure(let error):
                 print("error \(error)")
             }
@@ -38,7 +38,7 @@ final class IntelligenceHeroesViewController: UIViewController {
         intelligenceHeroesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         intelligenceHeroesCollectionView.backgroundColor = .black
         intelligenceHeroesCollectionView.layer.borderWidth = 1
-        backgroundIntoCollectionViewImageView.image = UIImage(named: "dotaLogoImage")
+        backgroundIntoCollectionViewImageView.image = UIIMageEnum.dotaLogoImage
         backgroundIntoCollectionViewImageView.contentMode = .scaleAspectFit
         intelligenceHeroesCollectionView.backgroundView = backgroundIntoCollectionViewImageView
 
@@ -51,8 +51,8 @@ final class IntelligenceHeroesViewController: UIViewController {
     }
 
     private func configureCollectionView() {
-        intelligenceHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        intelligenceHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
+        intelligenceHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReuseIdentifierEnum.headerView)
+        intelligenceHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: ReuseIdentifierEnum.customCell)
         intelligenceHeroesCollectionView.dataSource = self
         intelligenceHeroesCollectionView.delegate = self
     }

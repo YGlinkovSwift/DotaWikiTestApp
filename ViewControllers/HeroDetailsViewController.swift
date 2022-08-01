@@ -86,7 +86,7 @@ final class HeroDetailsViewController: UIViewController {
 
     private func setUpHeroPictureImageViewLayout() {
         view.addSubview(heroPictureImageView)
-        let baseLink = "https://api.opendota.com"
+        let baseLink = BaseLinkEnum.baseLinkURL
         let fullHeroPortraitImageLink = baseLink + hero[0].heroPortraitImageURL
         let fullHeroIconImageLink = baseLink + hero[0].heroIconImageURL
         heroPictureImageView.loadImageFromUrl(urlString: fullHeroPortraitImageLink)
@@ -111,7 +111,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroMoveSpeedImageViewLayout() {
         view.addSubview(heroMoveSpeedImageView)
-        heroMoveSpeedImageView.image = UIImage(named: "heroMoveSpeedImage")
+        heroMoveSpeedImageView.image = UIIMageEnum.heroMoveSpeedImage
         heroMoveSpeedImageView.contentMode = .scaleAspectFill
         heroMoveSpeedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -135,7 +135,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroAttackTypeImageViewLayout() {
         view.addSubview(heroAttackTypeImageView)
-        heroAttackTypeImageView.image = UIImage(named: "heroTypeAttackImage")
+        heroAttackTypeImageView.image = UIIMageEnum.heroTypeAttackImage
         NSLayoutConstraint.activate([
             heroAttackTypeImageView.leadingAnchor.constraint(equalTo: heroAttributeAgilityLabel.trailingAnchor, constant: 30),
             heroAttackTypeImageView.topAnchor.constraint(equalTo: heroMoveSpeedImageView.bottomAnchor, constant: 10),
@@ -147,8 +147,8 @@ final class HeroDetailsViewController: UIViewController {
     private func setUpHeroAttackTypeLabelLayout() {
         view.addSubview(heroAttackTypeLabel)
         
-        if hero[0].heroAttackType == "Ranged" {
-            heroAttackTypeLabel.text = "Range"
+        if hero[0].heroAttackType == HeroAttackTypeEnum.ranged  {
+            heroAttackTypeLabel.text = HeroAttackTypeEnum.range
         } else {
             heroAttackTypeLabel.text = hero[0].heroAttackType
         }
@@ -164,7 +164,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroAttackRangeImageViewLayout() {
         view.addSubview(heroAttackRangeImageView)
-        heroAttackRangeImageView.image = UIImage(named: "heroAttackRangeImage")
+        heroAttackRangeImageView.image = UIIMageEnum.heroAttackRangeImage
         NSLayoutConstraint.activate([
             heroAttackRangeImageView.leadingAnchor.constraint(equalTo: heroAttributeIntelligenceLabel.trailingAnchor, constant: 30),
             heroAttackRangeImageView.topAnchor.constraint(equalTo: heroAttackTypeImageView.bottomAnchor, constant: 10),
@@ -176,7 +176,6 @@ final class HeroDetailsViewController: UIViewController {
     private func setUpHeroAttackRangeLabelLayout() {
         view.addSubview(heroAttackRangeLabel)
         heroAttackRangeLabel.text = String(hero[0].heroAttackRange)
-        
         NSLayoutConstraint.activate([
             heroAttackRangeLabel.leadingAnchor.constraint(equalTo: heroAttackRangeImageView.trailingAnchor, constant: 10),
             heroAttackRangeLabel.topAnchor.constraint(equalTo: heroAttackTypeLabel.bottomAnchor, constant: 10),
@@ -189,13 +188,13 @@ final class HeroDetailsViewController: UIViewController {
         view.addSubview(heroNameLabel)
         heroNameLabel.text = hero[0].heroName
         heroNameLabel.textColor = .yellow
-        if hero[0].heroMainAttribute == "str" {
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.str {
             heroNameLabel.textColor = .red
         }
-        if hero[0].heroMainAttribute == "agi" {
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.agi {
             heroNameLabel.textColor = .green
         }
-        if hero[0].heroMainAttribute == "int" {
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.int {
             heroNameLabel.textColor = .cyan
         }
         
@@ -209,14 +208,14 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpHeroMainAttributeImageView() {
         view.addSubview(heroMainAttributeImageView)
-        if hero[0].heroMainAttribute == "str" {
-            heroMainAttributeImageView.image = UIImage(named: "strangeImage")
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.str {
+            heroMainAttributeImageView.image = UIIMageEnum.strangeImage
         }
-        if hero[0].heroMainAttribute == "agi" {
-            heroMainAttributeImageView.image = UIImage(named: "agilityImage")
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.agi {
+            heroMainAttributeImageView.image = UIIMageEnum.agilityImage
         }
-        if hero[0].heroMainAttribute == "int" {
-            heroMainAttributeImageView.image = UIImage(named: "intelligenceImage")
+        if hero[0].heroMainAttribute == HeroMainAttributeEnum.int {
+            heroMainAttributeImageView.image = UIIMageEnum.intelligenceImage
         }
         NSLayoutConstraint.activate([
             heroMainAttributeImageView.topAnchor.constraint(equalTo: heroIconImageView.bottomAnchor, constant: 5),
@@ -228,7 +227,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpStrangeAttributePictureImageViewLayout() {
         view.addSubview(strangeAttributeIconImageView)
-        strangeAttributeIconImageView.image = UIImage(named: "strangeImage")
+        strangeAttributeIconImageView.image = UIIMageEnum.strangeImage
         NSLayoutConstraint.activate([
             strangeAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             strangeAttributeIconImageView.topAnchor.constraint(equalTo: heroMainAttributeImageView.bottomAnchor, constant: 10),
@@ -251,7 +250,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpAgilityAttributePictureImageViewLayout() {
         view.addSubview(agilityAttributeIconImageView)
-        agilityAttributeIconImageView.image = UIImage(named: "agilityImage")
+        agilityAttributeIconImageView.image = UIIMageEnum.agilityImage
         NSLayoutConstraint.activate([
             agilityAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             agilityAttributeIconImageView.topAnchor.constraint(equalTo: strangeAttributeIconImageView.bottomAnchor, constant: 10),
@@ -274,7 +273,7 @@ final class HeroDetailsViewController: UIViewController {
     
     private func setUpIntelligenceAttributePictureImageViewLayout() {
         view.addSubview(intelligenceAttributeIconImageView)
-        intelligenceAttributeIconImageView.image = UIImage(named: "intelligenceImage")
+        intelligenceAttributeIconImageView.image = UIIMageEnum.intelligenceImage
         NSLayoutConstraint.activate([
             intelligenceAttributeIconImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             intelligenceAttributeIconImageView.topAnchor.constraint(equalTo: agilityAttributeIconImageView.bottomAnchor, constant: 10),

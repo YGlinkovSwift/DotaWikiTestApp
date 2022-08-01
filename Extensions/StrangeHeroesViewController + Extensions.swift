@@ -9,7 +9,7 @@ extension StrangeHeroesViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? CustomCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifierEnum.customCell, for: indexPath) as? CustomCell
         else { return UICollectionViewCell() }
         let sortedHeroesAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
         let cellModel = sortedHeroesAlphabetically[indexPath.row]
@@ -18,7 +18,6 @@ extension StrangeHeroesViewController: UICollectionViewDataSource, UICollectionV
         
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let sortedHeroAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
@@ -47,7 +46,7 @@ extension StrangeHeroesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ReuseIdentifierEnum.headerView, for: indexPath) as! HeaderView
         return view
     }
     

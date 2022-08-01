@@ -41,15 +41,15 @@ final class TabBarViewController: UITabBarController  {
         [allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController].forEach {
             $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 6, bottom: -6, right: 6)
         }
-        allHeroesViewController.tabBarItem.image = UIImage(named: "all")
-        strangeHeroesViewController.tabBarItem.image = UIImage(named: "strangeImage")
-        agilityHeroesViewController.tabBarItem.image = UIImage(named: "agilityImage")
-        intelligenceHeroesViewController.tabBarItem.image = UIImage(named: "intelligenceImage")
+        allHeroesViewController.tabBarItem.image = UIIMageEnum.AllIconImage
+        strangeHeroesViewController.tabBarItem.image = UIIMageEnum.strangeImage
+        agilityHeroesViewController.tabBarItem.image = UIIMageEnum.agilityImage
+        intelligenceHeroesViewController.tabBarItem.image = UIIMageEnum.intelligenceImage
     }
     
     //MARK: - Actions
     @objc func refreshButtonTapped() {
-        allHeroesViewController.searchBar.text = ""
+        allHeroesViewController.searchBar.text = SearchBarEnum.emptyText
         allHeroesViewController.dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):

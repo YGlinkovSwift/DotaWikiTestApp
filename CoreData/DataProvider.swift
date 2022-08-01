@@ -6,7 +6,7 @@ final class DataProvider {
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "DotaWiki")
+    let persistentContainer: NSPersistentContainer = NSPersistentContainer(name: CoreDataEnums.containerName)
     let repository: NetworkingManager = NetworkingManager()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
@@ -75,9 +75,9 @@ final class DataProvider {
     private func syncHeroes(result: Result<[Hero], NetworkingError>, taskContext: NSManagedObjectContext) -> Bool {
         var successfull = false
         taskContext.performAndWait {
-            let matchingHeroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+            let matchingHeroRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataEnums.Item)
             let heroName = result.map { [$0[0].heroName] }
-            matchingHeroRequest.predicate = NSPredicate(format: "heroName in %@", argumentArray: [heroName])
+            matchingHeroRequest.predicate = NSPredicate(format: CoreDataEnums.predicateFormat, argumentArray: [heroName])
             successfull = true
         }
         return successfull

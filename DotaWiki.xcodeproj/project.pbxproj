@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1039A1F28975B1C003FD58D /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1039A1E28975B1C003FD58D /* PublicEnums.swift */; };
 		C1581EED2896E7C300A0CF67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1581EEC2896E7C300A0CF67 /* HeaderView.swift */; };
 		C1581EF32897417C00A0CF67 /* Warrior Brush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */; };
 		C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1039A1E28975B1C003FD58D /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
 		C1581EEC2896E7C300A0CF67 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Warrior Brush.ttf"; sourceTree = "<group>"; };
 		C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMageView + Extensions.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1039A20289764BE003FD58D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C1039A1E28975B1C003FD58D /* PublicEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		C1581EF4289741DF00A0CF67 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,17 +173,17 @@
 		C1D577C428931375000FBDF0 = {
 			isa = PBXGroup;
 			children = (
-				C1581EF52897437400A0CF67 /* SystemUtilities */,
-				C1581EF4289741DF00A0CF67 /* Fonts */,
-				C1BD34892896DF4200AE637C /* AppDelegates */,
 				C1F350E8289467FD00F440C1 /* RootViewController */,
 				C1F350E72894450B00F440C1 /* MainViewController */,
 				C17B649F289318D900EBFFCC /* ViewControllers */,
-				C17B6492289318B500EBFFCC /* Networking */,
-				C17B64852893186500EBFFCC /* Models */,
 				C17B647E2893183700EBFFCC /* Extensions */,
 				C1D577EB2893148C000FBDF0 /* CoreData */,
-				C1D577CF28931375000FBDF0 /* DotaWiki */,
+				C17B6492289318B500EBFFCC /* Networking */,
+				C17B64852893186500EBFFCC /* Models */,
+				C1039A20289764BE003FD58D /* Enums */,
+				C1BD34892896DF4200AE637C /* AppDelegates */,
+				C1581EF4289741DF00A0CF67 /* Fonts */,
+				C1581EF52897437400A0CF67 /* SystemUtilities */,
 				C1D577CE28931375000FBDF0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,13 +194,6 @@
 				C1D577CD28931375000FBDF0 /* DotaWiki.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C1D577CF28931375000FBDF0 /* DotaWiki */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DotaWiki;
 			sourceTree = "<group>";
 		};
 		C1D577EB2893148C000FBDF0 /* CoreData */ = {
@@ -308,6 +311,7 @@
 				C17B64842893186000EBFFCC /* HeroCell.swift in Sources */,
 				C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */,
 				C17B6479289317BF00EBFFCC /* CoreDataStack.swift in Sources */,
+				C1039A1F28975B1C003FD58D /* PublicEnums.swift in Sources */,
 				C1BD34842896D99500AE637C /* AgilityHeroesViewController + Extensions.swift in Sources */,
 				C1D577D128931375000FBDF0 /* AppDelegate.swift in Sources */,
 				C17B6491289318B000EBFFCC /* HTTPScheme.swift in Sources */,

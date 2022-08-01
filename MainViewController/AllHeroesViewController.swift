@@ -46,6 +46,8 @@ final class AllHeroesViewController: UIViewController {
         configureCollectionView()
         hideKeyboardWhenTappedAround()
     }
+
+
     
     //MARK: - Private methods
     
@@ -62,11 +64,11 @@ final class AllHeroesViewController: UIViewController {
         searchBar.tintColor = .yellow
         searchBar.endEditing(true)
         searchBar.keyboardType = .default
-        searchBar.searchTextField.textColor = .red
+        searchBar.searchTextField.textColor = .yellow
         searchBar.backgroundColor = .black
         searchBar.barTintColor = .black
         searchBar.returnKeyType = .search
-        searchBar.placeholder = "Search all heroes by name..."
+        searchBar.placeholder = SearchBarEnum.placeholder
         searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -77,11 +79,10 @@ final class AllHeroesViewController: UIViewController {
         ])
     }
     
-    
     private func setUpCollectionViewLayout() {
         view.addSubview(allHeroesCollectionView)
         allHeroesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundIntoCollectionViewImageView.image = UIImage(named: "dotaLogoImage")
+        backgroundIntoCollectionViewImageView.image = UIIMageEnum.dotaLogoImage
         backgroundIntoCollectionViewImageView.contentMode = .scaleAspectFit
         allHeroesCollectionView.backgroundColor = .black
         allHeroesCollectionView.backgroundView = backgroundIntoCollectionViewImageView
@@ -94,19 +95,18 @@ final class AllHeroesViewController: UIViewController {
         ])
     }
     
-    
     private func configureCollectionView() {
-        allHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        allHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: "CustomCell")
+        allHeroesCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReuseIdentifierEnum.headerView)
+        allHeroesCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: ReuseIdentifierEnum.customCell)
         allHeroesCollectionView.dataSource = self
         allHeroesCollectionView.delegate = self
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: "", message: "No result matches about -  '\(searchBar.text!)' request", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-        let refreshAction = UIAlertAction(title: "Refresh", style: .default) { _ in
-            self.searchBar.text = ""
+        let alert = UIAlertController(title: AlertEnum.emptyTitle, message: AlertEnum.alertMessage + searchBar.text!, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: AlertEnum.cancelAction, style: .destructive)
+        let refreshAction = UIAlertAction(title: AlertEnum.refreshAction, style: .default) { _ in
+            self.searchBar.text = SearchBarEnum.emptyText
             self.dataProvider.fetchHeroes { result in
             switch result {
             case .success(let heroes):

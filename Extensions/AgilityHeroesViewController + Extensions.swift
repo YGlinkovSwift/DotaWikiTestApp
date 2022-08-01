@@ -9,9 +9,9 @@ extension AgilityHeroesViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? CustomCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifierEnum.customCell, for: indexPath) as? CustomCell
         else { return UICollectionViewCell() }
-        let sortedHeroesAlphabetically = heroes.filter { $0.heroMainAttribute == "agi"}
+        let sortedHeroesAlphabetically = heroes.sorted { $0.heroName < $1.heroName }
         let cellModel = sortedHeroesAlphabetically[indexPath.row]
         cell.configure(with: cellModel)
         return cell
@@ -46,7 +46,7 @@ extension AgilityHeroesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ReuseIdentifierEnum.headerView, for: indexPath) as! HeaderView
         return view
     }
 
