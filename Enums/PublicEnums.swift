@@ -10,11 +10,15 @@ public enum UIIMageEnum {
     static let intelligenceImage = UIImage(named: "intelligenceImage")
     static let strangeImage = UIImage(named: "strangeImage")
     static let AllIconImage = UIImage(named: "all")
-
- }
+    
+}
 
 public enum UIFontEnum {
-    static let warriorBrush = UIFont(name: "Warrior Brush", size: 35)
+    static let warriorBrushWithSize35 = UIFont(name: "Warrior Brush", size: 35)
+    static let warriorBrushWithSize25 = UIFont(name: "Warrior Brush", size: 25)
+    static let warriorBrushWithSize20 = UIFont(name: "Warrior Brush", size: 20)
+    static let warriorBrushWithSize15 = UIFont(name: "Warrior Brush", size: 15)
+    
 }
 
 public enum ReuseIdentifierEnum {
@@ -61,5 +65,3 @@ public enum CoreDataEnums {
     static let heroName = "heroName"
     static let heroPortraitImageURL = "heroPortraitImageURL"
 }
-
-

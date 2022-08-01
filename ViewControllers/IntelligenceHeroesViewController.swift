@@ -57,6 +57,3 @@ final class IntelligenceHeroesViewController: UIViewController {
         intelligenceHeroesCollectionView.delegate = self
     }
 }
-
-
-

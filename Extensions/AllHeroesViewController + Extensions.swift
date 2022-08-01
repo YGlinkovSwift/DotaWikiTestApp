@@ -4,9 +4,6 @@ import CoreData
 
 extension AllHeroesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-
-     
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return heroes.count
     }
@@ -59,25 +56,7 @@ extension AllHeroesViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension AllHeroesViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == SearchBarEnum.emptyText
-        {
-            searchBar.perform(#selector(self.resignFirstResponder), with: nil, afterDelay: 0.0)
-        } else {
-            allHeroesCollectionView.reloadData()
-        }
         
-    }
-
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-        searchBar.resignFirstResponder()
-        searchBar.inputViewController?.dismissKeyboard()
-        self.allHeroesCollectionView.keyboardDismissMode = .onDrag
-        allHeroesCollectionView.reloadData()
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         dataProvider.fetchHeroesPredicate(for: searchBar.text!) { result in
@@ -118,4 +97,3 @@ extension AllHeroesViewController: NSFetchedResultsControllerDelegate {
         self.allHeroesCollectionView.reloadData()
     }
 }
-

@@ -56,6 +56,3 @@ final class StrangeHeroesViewController: UIViewController {
         strangeHeroesCollectionView.delegate = self
     }
 }
-
-
-

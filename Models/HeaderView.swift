@@ -27,7 +27,7 @@ class HeaderView: UICollectionReusableView {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.textColor = .yellow
             $0.textAlignment = .center
-            $0.font = UIFontEnum.warriorBrush
+            $0.font = UIFontEnum.warriorBrushWithSize35
         }
         addSubview(leftAppNameLabel)
         leftAppNameLabel.text = AppNameLabelEnum.dota

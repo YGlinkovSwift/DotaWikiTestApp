@@ -59,7 +59,3 @@ final class AgilityHeroesViewController: UIViewController {
         agilityHeroesCollectionView.delegate = self
     }
 }
-
-
-
-

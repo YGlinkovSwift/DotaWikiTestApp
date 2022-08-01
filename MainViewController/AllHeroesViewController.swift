@@ -47,8 +47,6 @@ final class AllHeroesViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
 
-
-    
     //MARK: - Private methods
     
     private func hideKeyboardWhenTappedAround() {
@@ -134,4 +132,3 @@ final class AllHeroesViewController: UIViewController {
     }
 
 }
-

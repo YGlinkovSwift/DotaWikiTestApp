@@ -8,14 +8,13 @@ final class TabBarViewController: UITabBarController  {
     private let strangeHeroesViewController = StrangeHeroesViewController()
     private let agilityHeroesViewController = AgilityHeroesViewController()
     private let intelligenceHeroesViewController = IntelligenceHeroesViewController()
-    private let refreshButton = UIButton()
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabBarController()
-        configuteTabBar()
+        configureTabBar()
         configureRefreshButton()
     }
     
@@ -25,7 +24,7 @@ final class TabBarViewController: UITabBarController  {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
     }
     
-    private func configuteTabBar() {
+    private func configureTabBar() {
         self.setViewControllers([allHeroesViewController, strangeHeroesViewController, agilityHeroesViewController, intelligenceHeroesViewController], animated: false)
         setUpTabBarController()
         self.tabBar.contentMode = .scaleAspectFit
@@ -63,5 +62,3 @@ final class TabBarViewController: UITabBarController  {
         }
     }
 }
-
-

@@ -79,9 +79,10 @@ final class HeroDetailsViewController: UIViewController {
             $0.textColor = .yellow
         }
         
-        [heroAttributeIntelligenceLabel, heroAttributeAgilityLabel, heroAttributeStrangeLabel, heroNameLabel,  heroAttackRangeLabel, heroMoveSpeedLabel].forEach {
+        [heroAttributeIntelligenceLabel, heroAttributeAgilityLabel, heroAttributeStrangeLabel,  heroAttackRangeLabel, heroMoveSpeedLabel].forEach {
             $0.font = .systemFont(ofSize: 25)
         }
+
     }
 
     private func setUpHeroPictureImageViewLayout() {
@@ -153,7 +154,7 @@ final class HeroDetailsViewController: UIViewController {
             heroAttackTypeLabel.text = hero[0].heroAttackType
         }
         
-        heroAttackTypeLabel.font = .systemFont(ofSize: 25)
+        heroAttackTypeLabel.font = UIFontEnum.warriorBrushWithSize25
         NSLayoutConstraint.activate([
             heroAttackTypeLabel.leadingAnchor.constraint(equalTo: heroAttackTypeImageView.trailingAnchor),
             heroAttackTypeLabel.topAnchor.constraint(equalTo: heroMoveSpeedLabel.bottomAnchor, constant: 10),
@@ -188,6 +189,7 @@ final class HeroDetailsViewController: UIViewController {
         view.addSubview(heroNameLabel)
         heroNameLabel.text = hero[0].heroName
         heroNameLabel.textColor = .yellow
+        heroNameLabel.font = UIFontEnum.warriorBrushWithSize25
         if hero[0].heroMainAttribute == HeroMainAttributeEnum.str {
             heroNameLabel.textColor = .red
         }
@@ -298,7 +300,7 @@ final class HeroDetailsViewController: UIViewController {
         view.addSubview(heroGameRolesLabel)
         heroGameRolesLabel.text = "\(hero[0].heroGameRoles.joined(separator: ", "))"
         heroGameRolesLabel.textColor = .white
-        heroGameRolesLabel.font = .systemFont(ofSize: 20)
+        heroGameRolesLabel.font = UIFontEnum.warriorBrushWithSize20
         heroGameRolesLabel.numberOfLines = 2
         NSLayoutConstraint.activate([
             heroGameRolesLabel.topAnchor.constraint(equalTo: heroAttributeIntelligenceLabel.bottomAnchor, constant: 10),

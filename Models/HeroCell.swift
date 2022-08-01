@@ -41,7 +41,7 @@ final class CustomCell: UICollectionViewCell {
         HeroNameTextLabel.textAlignment = .center
         HeroNameTextLabel.layer.borderWidth = 0
         HeroNameTextLabel.textColor = .white
-        HeroNameTextLabel.font = UIFont.systemFont(ofSize: 15)
+        HeroNameTextLabel.font = UIFontEnum.warriorBrushWithSize15
         
         NSLayoutConstraint.activate([
             HeroNameTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
