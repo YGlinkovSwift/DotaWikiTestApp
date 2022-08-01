@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Warrior Brush.ttf</string>
+		<string>Ancient-Tulip.ttf</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict/>

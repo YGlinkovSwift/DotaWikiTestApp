@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C1039A1F28975B1C003FD58D /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1039A1E28975B1C003FD58D /* PublicEnums.swift */; };
+		C1039A242897FD61003FD58D /* Ancient-Tulip.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1039A232897FD61003FD58D /* Ancient-Tulip.ttf */; };
 		C1581EED2896E7C300A0CF67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1581EEC2896E7C300A0CF67 /* HeaderView.swift */; };
 		C1581EF32897417C00A0CF67 /* Warrior Brush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */; };
 		C17B64722893176800EBFFCC /* UIIMageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		C1039A1E28975B1C003FD58D /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
+		C1039A232897FD61003FD58D /* Ancient-Tulip.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ancient-Tulip.ttf"; sourceTree = "<group>"; };
 		C1581EEC2896E7C300A0CF67 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Warrior Brush.ttf"; sourceTree = "<group>"; };
 		C17B646F2893176700EBFFCC /* UIIMageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMageView + Extensions.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		C1581EF4289741DF00A0CF67 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				C1039A232897FD61003FD58D /* Ancient-Tulip.ttf */,
 				C1581EF22897417C00A0CF67 /* Warrior Brush.ttf */,
 			);
 			path = Fonts;
@@ -283,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1039A242897FD61003FD58D /* Ancient-Tulip.ttf in Resources */,
 				C1581EF32897417C00A0CF67 /* Warrior Brush.ttf in Resources */,
 				C17B64A1289319C600EBFFCC /* Assets.xcassets in Resources */,
 				C1D577E028931375000FBDF0 /* LaunchScreen.storyboard in Resources */,

@@ -17,7 +17,9 @@ public enum UIFontEnum {
     static let warriorBrushWithSize35 = UIFont(name: "Warrior Brush", size: 35)
     static let warriorBrushWithSize25 = UIFont(name: "Warrior Brush", size: 25)
     static let warriorBrushWithSize20 = UIFont(name: "Warrior Brush", size: 20)
+    static let warriorBrushWithSize23 = UIFont(name: "Warrior Brush", size: 23.5)
     static let warriorBrushWithSize15 = UIFont(name: "Warrior Brush", size: 15)
+    static let ancientTulipWithSize23 = UIFont(name: "Ancient-Tulip", size: 23.5)
     
 }
 

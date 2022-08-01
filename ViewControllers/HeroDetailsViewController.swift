@@ -80,7 +80,7 @@ final class HeroDetailsViewController: UIViewController {
         }
         
         [heroAttributeIntelligenceLabel, heroAttributeAgilityLabel, heroAttributeStrangeLabel,  heroAttackRangeLabel, heroMoveSpeedLabel].forEach {
-            $0.font = .systemFont(ofSize: 25)
+            $0.font = UIFontEnum.ancientTulipWithSize23
         }
 
     }
@@ -154,7 +154,7 @@ final class HeroDetailsViewController: UIViewController {
             heroAttackTypeLabel.text = hero[0].heroAttackType
         }
         
-        heroAttackTypeLabel.font = UIFontEnum.warriorBrushWithSize25
+        heroAttackTypeLabel.font = UIFontEnum.warriorBrushWithSize23
         NSLayoutConstraint.activate([
             heroAttackTypeLabel.leadingAnchor.constraint(equalTo: heroAttackTypeImageView.trailingAnchor),
             heroAttackTypeLabel.topAnchor.constraint(equalTo: heroMoveSpeedLabel.bottomAnchor, constant: 10),
